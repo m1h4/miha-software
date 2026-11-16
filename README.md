@@ -69,7 +69,7 @@ This repository started from a snapshot of the private `m1h4/website` repository
 
 The catalogue/English landing page is `content/apps/photo-resize.md`. Its Croatian translation, bilingual privacy policy, and support pages are in `content/photo-resize/`, with a non-rendered section index. Preserve `/apps/photo-resize/`, `/apps/photo-resize/hr/`, `/apps/photo-resize/privacy/`, `/apps/photo-resize/privacy/hr/`, `/apps/photo-resize/support/` and `/apps/photo-resize/support/hr/`; the Android app already links to the privacy URLs. These pages opt out of analytics. `themes/m1h4/layouts/photo-resize.html` is the matching wrapper around `partials/product-page.html`; actual paired app captures and the icon are in `static/photo-resize/`. The photograph is synthetic demo content.
 
-The rebuilt app is in internal testing; add its public Google Play link only after availability is verified. Support remains `mihovilic@gmail.com`, matching the app. Original archived screenshots and their URLs remain intact.
+Photo Resize 1.0 (build 12) is available on Google Play, released on 6 November 2026. The homepage card reflects its public availability; both landing pages use `storeurl` and localized `storelabel` fields to display the verified Play link through the shared product layout. Support remains `mihovilic@gmail.com`, matching the app. Original archived screenshots and their URLs remain intact.
 
 ## Beam release pages
 

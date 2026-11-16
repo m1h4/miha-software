@@ -22,6 +22,7 @@
                 <p class="label">{{ $page.Params.eyebrow }}</p>
                 <h1>{{ $page.Params.headline }}</h1>
                 <p class="lead">{{ $page.Params.intro }}</p>
+                {{ with $page.Params.storeurl }}<p><a class="button store-button" href="{{ . }}">{{ $page.Params.storelabel }}</a></p>{{ end }}
                 <p class="note">{{ $page.Params.releasestatus }}</p>
             </div>
             <figure class="shot">

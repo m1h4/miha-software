@@ -14,11 +14,14 @@
   "headline": "Manja fotografija. Lakše dijeljenje.",
   "product": true,
   "intro": "Izradi manju kopiju fotografije za e-poštu i poruke. Izvornik ostaje nepromijenjen.",
-  "releasestatus": "Photo Resize je besplatna Android aplikacija koja radi na uređaju. Obnovljena verzija trenutačno je u internom testiranju; javna stranica na Google Playu još nije dostupna.",
+  "releasestatus": "Besplatno dostupno na Google Playu. Verzija 1.0 objavljena je 6. studenoga 2026.",
   "screenshot": "/photo-resize/hr-light.png",
   "screenshotdark": "/photo-resize/hr-dark.png",
   "screenshotalt": "Photo Resize prikazuje sintetičku fotografiju obale, izvorne dimenzije i manje kopije za dijeljenje sa stvarnim veličinama datoteka.",
-  "screenshotcaption": "Snimka stvarne aplikacije sa sintetičkom oglednom fotografijom."
+  "screenshotcaption": "Snimka stvarne aplikacije sa sintetičkom oglednom fotografijom.",
+  "lastmod": "2026-11-17T00:00:00+01:00",
+  "storeurl": "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize",
+  "storelabel": "Preuzmi na Google Playu"
 }
 
 ## Odaberi, smanji, podijeli
