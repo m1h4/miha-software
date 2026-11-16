@@ -185,9 +185,12 @@ def main():
         button = app.find(".//a[@class='button download-button']") if app is not None else None
         require(button is not None and button.get("href") == "/downloads/" + filename,
                 "Missing primary download for " + slug)
-    unavailable = documents.get(directory / "apps/photo-resize/index.html")
-    require(unavailable is not None and unavailable.find(".//a[@class='button download-button']") is None,
-            "Unavailable app should not offer a download")
+    for route in ("/apps/photo-resize/", "/apps/photo-resize/hr/"):
+        app = documents.get(destination(route))
+        button = app.find(".//a[@class='button store-button']") if app is not None else None
+        require(button is not None and button.get("href") ==
+                "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize",
+                "Missing published Photo Resize Play link: " + route)
 
     if errors:
         raise SystemExit("\n".join(errors))

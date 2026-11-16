@@ -12,10 +12,10 @@
   ],
   "eyebrow": "Photo Resize · Android 10+",
   "headline": "A lighter way to share.",
-  "lastmod": "2026-11-06T00:00:00+01:00",
+  "lastmod": "2026-11-17T00:00:00+01:00",
   "platform": "Android 10+",
-  "availability": "Internal testing",
-  "compatibility": "The modernized app is in internal testing. Public Google Play availability is pending.",
+  "availability": "Available on Google Play",
+  "compatibility": "Requires Android 10 or later. Version 1.0 is available on Google Play.",
   "screenshot": "/photo-resize/en-light.png",
   "screenshotalt": "Photo Resize showing a synthetic coastal photo, original dimensions, and smaller sharing options with actual file sizes.",
   "weight": 2,
@@ -24,8 +24,10 @@
   "screenshotdark": "/photo-resize/en-dark.png",
   "product": true,
   "intro": "Make a smaller copy of a photo for emails and messages. Your original stays just as it is.",
-  "releasestatus": "Photo Resize is a free, offline Android utility. The rebuilt version is in internal testing; the public Google Play listing is not yet available.",
-  "screenshotcaption": "Actual app screenshot with a synthetic sample photo."
+  "releasestatus": "Available free on Google Play. Version 1.0, released 6 November 2026.",
+  "screenshotcaption": "Actual app screenshot with a synthetic sample photo.",
+  "storeurl": "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize",
+  "storelabel": "Get it on Google Play"
 }
 
 ## Choose, resize, share
