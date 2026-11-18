@@ -180,6 +180,20 @@ def main():
                     "Missing system/manual dark screenshot source: " + route)
             require(image is not None and "-light_" in image.get("srcset", "") and bool(image.get("alt", "").strip()),
                     "Missing light screenshot/alternative: " + route)
+    # The Events home card and both product heroes showcase the launcher widget.
+    for route, selector, language in (
+        ("/", ".//a[@class='app-link'][@href='/events/']//picture", "en"),
+        ("/events/", ".//figure[@class='shot']/picture", "en"),
+        ("/events/index-hr.html", ".//figure[@class='shot']/picture", "hr"),
+    ):
+        page = documents.get(destination(route))
+        picture = page.find(selector) if page is not None else None
+        for tag, mode in (("img", "light"), ("source", "dark")):
+            element = picture.find(tag) if picture is not None else None
+            variants = element.get("srcset", "").split(",") if element is not None else []
+            prefix = f"/events/widget-{language}-{mode}_"
+            require(bool(variants) and all(v.strip().startswith(prefix) for v in variants),
+                    f"Expected the {language} {mode} Events widget screenshot on {route}")
     for slug, filename in (("analyzed", "Analyzed.exe"), ("audio-analyzer", "AudioAnalyzer.zip"), ("kurve", "kurve.zip")):
         app = documents.get(directory / "apps" / slug / "index.html")
         button = app.find(".//a[@class='button download-button']") if app is not None else None
