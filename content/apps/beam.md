@@ -2,6 +2,7 @@
   "title": "Beam",
   "description": "Your photos and videos on the TV, over your own Wi-Fi. Free, private, no account.",
   "date": "2026-11-11T00:00:00+01:00",
+  "lastmod": "2026-11-18T00:00:00+01:00",
   "url": "/apps/beam/",
   "layout": "beam",
   "language": "en",
@@ -13,8 +14,8 @@
   "eyebrow": "Beam · iPhone and iPad",
   "headline": "Your photos on the TV.",
   "platform": "iPhone and iPad",
-  "availability": "Coming soon",
-  "compatibility": "Beam 1.0 is being prepared for the App Store. It needs iOS or iPadOS 26.5 or later and a TV that supports DLNA/UPnP.",
+  "availability": "Available on the App Store",
+  "compatibility": "Requires iOS or iPadOS 26.5 or later and a TV that supports DLNA/UPnP.",
   "screenshot": "/beam/en-viewer.jpg",
   "screenshotalt": "Beam showing a photo of a waterfall full screen, with the name of the TV it is on and slideshow controls below.",
   "weight": 3,
@@ -22,7 +23,9 @@
   "icon": "/beam/icon.png",
   "product": true,
   "intro": "Beam puts the photos and videos on your iPhone or iPad on the TV, over your home Wi-Fi. Tap a photo and it is on the big screen. Swipe, and the TV follows.",
-  "releasestatus": "Beam 1.0 is being prepared for the App Store; the download link will appear here when it is available.",
+  "releasestatus": "Beam 1.0 is free. Requires iOS or iPadOS 26.5 or later.",
+  "storeurl": "https://apps.apple.com/app/id6821447732",
+  "storelabel": "Download on the App Store",
   "screenshotcaption": "Actual app screenshot with a generated sample photo."
 }
 
