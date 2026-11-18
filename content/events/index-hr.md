@@ -14,11 +14,13 @@
   "headline": "Vaš raspored na početnom zaslonu",
   "product": true,
   "intro": "Pogledajte što slijedi bez otvaranja kalendara. Prozirni widget prikazuje onoliko cijelih redaka koliko stane na početni zaslon. Dodirnite događaj u rasporedu aplikacije Events da biste ga otvorili u svojem kalendaru.",
-  "releasestatus": "Modernizirana aplikacija priprema se za objavu. Poveznicu na Google Play dodat ćemo kada bude dostupna.",
+  "releasestatus": "Besplatno za Android 10 i novije verzije.",
   "screenshot": "/events/widget-hr-light.png",
   "screenshotdark": "/events/widget-hr-dark.png",
   "screenshotalt": "Widget Events na početnom zaslonu telefona Pixel s nadolazećim događajima grupiranima po danima.",
-  "screenshotcaption": "Widget na početnom zaslonu s primjerima događaja iz kalendara."
+  "screenshotcaption": "Widget na početnom zaslonu s primjerima događaja iz kalendara.",
+  "storelabel": "Preuzmi na Google Playu",
+  "storeurl": "https://play.google.com/store/apps/details?id=com.mihovilic.android.events"
 }
 
 ## Prilagodite svaki widget

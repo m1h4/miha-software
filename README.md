@@ -63,7 +63,7 @@ This repository started from a snapshot of the private `m1h4/website` repository
 
 `content/events/` contains the English and Croatian landing, privacy and support pages. Keep `/events/`, `/events/index-hr.html`, `/events/privacy.html`, `/events/privacy-hr.html`, `/events/support.html` and `/events/support-hr.html` stable: the Android app uses these URLs. `themes/m1h4/layouts/events.html` is a short wrapper that passes the app's name, icon, contact address and URLs to the shared `partials/product-page.html`; screenshots and the icon are in `static/events/` and contain only fictional calendar data. Update the existing page when editing either translation, and preserve the same-page language links. The English landing page and the homepage card share the same widget captures. The Croatian landing page uses the matching Croatian pair. Replace the four `static/events/widget-{en,hr}-{light,dark}.png` screenshots together when the widget changes.
 
-`content/apps/events.md` only feeds the home-page card (`build.render: never`); it no longer renders a page, and `/apps/events/` redirects to `/events/` through an alias on `content/events/_index.md`. The app is still preparing for release; add its verified Google Play link only when published. Support uses `support@mihasoftware.com`. Changes deploy through the normal pull-request workflow.
+`content/apps/events.md` only feeds the home-page card (`build.render: never`); it no longer renders a page, and `/apps/events/` redirects to `/events/` through an alias on `content/events/_index.md`. Events is available on Google Play. Both product pages link to its public listing. Support uses `support@mihasoftware.com`. Changes deploy through the normal pull-request workflow.
 
 ## Photo Resize release pages
 

@@ -17,11 +17,13 @@
   "headline": "Your calendar on the home screen",
   "product": true,
   "intro": "See what’s next without opening your calendar. The transparent widget shows as many complete events as fit on your home screen. Tap an event in the companion agenda to open it in your calendar app.",
-  "releasestatus": "The modernized app is being prepared for release. A Google Play link will be added when it is available.",
+  "releasestatus": "Free for Android 10 and later.",
   "screenshot": "/events/widget-en-light.png",
   "screenshotdark": "/events/widget-en-dark.png",
   "screenshotalt": "Events widget on a Pixel home screen, with upcoming events grouped by day.",
-  "screenshotcaption": "The home-screen widget with sample calendar events."
+  "screenshotcaption": "The home-screen widget with sample calendar events.",
+  "storelabel": "Get it on Google Play",
+  "storeurl": "https://play.google.com/store/apps/details?id=com.mihovilic.android.events"
 }
 
 ## Choose what fits

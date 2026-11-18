@@ -199,10 +199,13 @@ def main():
         button = app.find(".//a[@class='button download-button']") if app is not None else None
         require(button is not None and button.get("href") == "/downloads/" + filename,
                 "Missing primary download for " + slug)
-    play_url = "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize"
+    events_play_url = "https://play.google.com/store/apps/details?id=com.mihovilic.android.events"
+    photo_resize_play_url = "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize"
     for route, store_url in (
-        ("/apps/photo-resize/", play_url),
-        ("/apps/photo-resize/hr/", play_url),
+        ("/events/", events_play_url),
+        ("/events/index-hr.html", events_play_url),
+        ("/apps/photo-resize/", photo_resize_play_url),
+        ("/apps/photo-resize/hr/", photo_resize_play_url),
         ("/apps/beam/", "https://apps.apple.com/app/id6821447732"),
         ("/apps/beam/hr/", "https://apps.apple.com/hr/app/id6821447732?l=hr"),
         ("/apps/radio/", "https://apps.apple.com/app/id6828167657"),
