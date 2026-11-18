@@ -30,6 +30,10 @@ Android može odgoditi pozadinski rad radi uštede baterije. Otvorite Events i d
 
 U odjeljku Widgeti prilagodite svaki postavljeni widget. Svijetli tekst prikladan je za tamne pozadine. Za svijetle pozadine odaberite tamni tekst ili povećajte neprozirnost pozadine widgeta. Veličinu promijenite dugim pritiskom na widget na početnom zaslonu.
 
+## Koliko događaja stane u widget?
+
+Widget prema zadanim postavkama prikazuje samo cijele retke koji stanu u njegovu visinu. Za prikaz više događaja povećajte widget, odaberite razmak **Zbijeno** ili u postavkama uključite **Pomicanje kroz događaje**. Svaki postavljeni widget ima vlastite postavke.
+
 ## Javite nam se
 
 Pišite na [support@mihasoftware.com](mailto:support@mihasoftware.com) i navedite verziju Androida, model uređaja, verziju aplikacije Events i opis problema. Snimke zaslona nisu obvezne; prije slanja uklonite privatne podatke iz kalendara.
