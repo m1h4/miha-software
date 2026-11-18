@@ -16,7 +16,7 @@
 
 ## Make a smaller attachment
 
-Choose a photo in the app, or share one from your gallery to Photo Resize. Wait for the file sizes to appear, tap a size, and choose your email or messaging app. Cancelling Android’s sharing menu returns you to the photo.
+In version 1.1, choose up to 20 photos in the app or share a selection from your gallery to Photo Resize. Tap the combined size you want and choose your email or messaging app. Version 1.0 handles one photo at a time.
 
 ## Why is an option missing or not smaller?
 
@@ -32,7 +32,7 @@ Choose the source photo again. Android can clear cached copies, and Photo Resize
 
 ## Storage or memory errors
 
-Free some device storage or close other apps, then try again. Choose a smaller source file if the image is unusually large. Individual input files over 256 MB are not supported.
+Free some device storage or close other apps, then try again. Choose a smaller source file if the image is unusually large. Each source file can be up to 256 MB and the whole selection up to 512 MB.
 
 ## Contact
 

@@ -16,7 +16,7 @@
 
 ## Izradi manji privitak
 
-Odaberi fotografiju u aplikaciji ili je podijeli iz galerije u Photo Resize. Pričekaj prikaz veličina datoteka, dodirni veličinu i odaberi aplikaciju za e-poštu ili poruke. Zatvaranje Androidova izbornika za dijeljenje vraća te na fotografiju.
+U verziji 1.1 odaberi do 20 fotografija u aplikaciji ili ih iz galerije podijeli u Photo Resize. Dodirni željenu ukupnu veličinu i odaberi aplikaciju za e-poštu ili poruke. Verzija 1.0 obrađuje jednu fotografiju odjednom.
 
 ## Zašto nema neke opcije ili datoteka nije manja?
 
@@ -32,7 +32,7 @@ Ponovno odaberi izvornu fotografiju. Android može očistiti predmemoriju, a Pho
 
 ## Nedostaje prostora ili memorije
 
-Oslobodi prostor ili zatvori druge aplikacije pa pokušaj ponovno. Za neuobičajeno veliku sliku odaberi manju izvornu datoteku. Pojedinačne ulazne datoteke veće od 256 MB nisu podržane.
+Oslobodi prostor ili zatvori druge aplikacije pa pokušaj ponovno. Za neuobičajeno veliku sliku odaberi manju izvornu datoteku. Pojedinačna datoteka može imati do 256 MB, a cijeli odabir do 512 MB.
 
 ## Kontakt
 

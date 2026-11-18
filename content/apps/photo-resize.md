@@ -12,38 +12,34 @@
   ],
   "eyebrow": "Photo Resize · Android 10+",
   "headline": "A lighter way to share.",
-  "lastmod": "2026-11-17T00:00:00+01:00",
+  "lastmod": "2026-11-18T00:00:00+01:00",
   "platform": "Android 10+",
   "availability": "Available on Google Play",
-  "compatibility": "Requires Android 10 or later. Version 1.0 is available on Google Play.",
+  "compatibility": "Requires Android 10 or later.",
   "screenshot": "/photo-resize/en-light.png",
-  "screenshotalt": "Photo Resize showing a synthetic coastal photo, original dimensions, and smaller sharing options with actual file sizes.",
+  "screenshotalt": "Three selected photos with their original total, the metadata switch, and smaller attachment sizes.",
   "weight": 2,
   "collection": "current",
   "icon": "/photo-resize/icon.png",
   "screenshotdark": "/photo-resize/en-dark.png",
   "product": true,
-  "intro": "Make a smaller copy of a photo for emails and messages. Your original stays just as it is.",
-  "releasestatus": "Available free on Google Play. Version 1.0, released 6 November 2026.",
-  "screenshotcaption": "Actual app screenshot with a synthetic sample photo.",
+  "intro": "Make smaller attachments for emails and messages. Your original photos stay in your gallery.",
+  "releasestatus": "Photo Resize is available on Google Play. Here’s what’s new in version 1.1.",
+  "screenshotcaption": "Version 1.1 compares attachment sizes for three sample photos.",
   "storeurl": "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize",
   "storelabel": "Get it on Google Play"
 }
 
-## Choose, resize, share
+## Share up to 20 photos in version 1.1
 
-Open Photo Resize and choose one photo with Android’s photo picker. Or tap Share in your gallery and choose Photo Resize.
+Choose photos in the app, or select them in your gallery and tap **Share → Photo Resize**. Compare the original total with the size of each set of smaller copies. Tap the size you want, then choose the app that should receive all the attachments together.
 
-Pick Small (1000 px), Medium (1600 px), or Large (2400 px). These limits apply to the longest edge; smaller images are never enlarged. See the actual encoded file size before sharing through Android’s familiar sharing menu. File-size savings depend on the image and format.
+Small, Medium and Large fit the longest edge within 1000, 1600 or 2400 pixels. In a batch, photos already within your chosen size and animated images go through as originals. Transparent images keep their transparency.
 
-## Your original stays yours
+## Choose which details travel with your photos
 
-Resizing creates temporary copies in private app storage. The original remains unchanged. Resized copies omit location and other source photo metadata; choosing Original preserves the complete original file and its metadata. Temporary copies are removed on later launches after 24 hours of inactivity, and Android may clear them sooner.
+Resized copies leave out source metadata by default. Turn on **Preserve metadata** to include supported details such as capture date, camera and available location. Files shared as originals keep all their metadata.
 
-The app has no accounts, advertising, analytics, or network permission. The app you deliberately share to handles the copy under its own policy. Transparent images keep their transparency; animated images are shared unchanged.
-
-## At home on Android
-
-Light and dark themes, system colors on supported devices, adaptive phone and tablet layouts, and English and Croatian. Requires Android 10 or newer.
+Processing happens on your device. On later launches the app removes temporary copies unused for 24 hours. There are no ads, accounts or analytics. The new Material 3 Expressive interface adapts to light and dark themes, larger text, phones and tablets. Requires Android 10 or later.
 
 [Help and support](/apps/photo-resize/support/) · [Privacy policy](/apps/photo-resize/privacy/) · [Hrvatski](/apps/photo-resize/hr/)
