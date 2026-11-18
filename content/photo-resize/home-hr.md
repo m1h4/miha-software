@@ -10,8 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "Photo Resize · Android 10+",
-  "headline": "Manja fotografija. Lakše dijeljenje.",
+  "headline": "Photo Resize · Android 10+",
   "product": true,
   "intro": "Pripremi manje privitke za e-poštu ili poruke. Izvorne fotografije ostaju u galeriji.",
   "releasestatus": "Photo Resize je dostupan na Google Playu. U nastavku su novosti u verziji 1.1.",

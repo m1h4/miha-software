@@ -11,8 +11,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "Beam · iPhone i iPad",
-  "headline": "Vaše fotografije na televizoru.",
+  "headline": "Beam · iPhone i iPad",
   "product": true,
   "intro": "Beam prikazuje fotografije i videozapise s vašeg iPhonea ili iPada na televizoru, putem kućne Wi-Fi mreže. Dodirnite fotografiju i ona je na velikom zaslonu. Listajte, a televizor vas prati.",
   "releasestatus": "Beam 1.0 je besplatan. Zahtijeva iOS ili iPadOS 26.5 ili noviji.",

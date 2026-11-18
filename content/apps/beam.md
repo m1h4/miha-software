@@ -11,8 +11,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "Beam · iPhone and iPad",
-  "headline": "Your photos on the TV.",
+  "headline": "Beam · iPhone and iPad",
   "platform": "iPhone and iPad",
   "availability": "Available on the App Store",
   "compatibility": "Requires iOS or iPadOS 26.5 or later and a TV that supports DLNA/UPnP.",

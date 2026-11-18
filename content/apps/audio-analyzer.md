@@ -1,7 +1,7 @@
 ---
 title: "Audio Analyzer"
 date: 2014-02-03T00:00:00+02:00
-description: "An experiment in sound and graphics. Watch visualizations respond to the music playing on your computer."
+description: "Watch visualizations respond to the music playing on your computer."
 platform: "Windows"
 availability: "Historical release"
 version: "2.7.0"
