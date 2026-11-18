@@ -1,7 +1,7 @@
 ---
 title: "Kurve"
 date: 2014-02-03T00:00:00+02:00
-description: "One computer, a few friends, and a race to stay alive. A local multiplayer game inspired by Achtung, die Kurve."
+description: "A local multiplayer game inspired by Achtung, die Kurve."
 platform: "Windows"
 availability: "Historical release"
 version: "1.0.0"

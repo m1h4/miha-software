@@ -10,8 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "Mala pomoć",
-  "headline": "Prilagodite Events sebi."
+  "headline": "Pomoć i podrška"
 }
 
 ## Dodavanje widgeta

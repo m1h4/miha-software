@@ -4,4 +4,4 @@ description: "Original Windows apps, audio experiments, and a game by Marko Miho
 layout: "archive"
 ---
 
-A few things made along the way: audio experiments and a game for friends. Their original downloads and documentation live here.
+Original downloads and documentation for Windows apps.

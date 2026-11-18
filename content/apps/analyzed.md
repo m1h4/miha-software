@@ -1,7 +1,7 @@
 ---
 title: "Analyzed"
 date: 2014-05-04T00:00:00+02:00
-description: "A compact audio visualization plugin for Windows Media Player. Give your music a different shape."
+description: "A compact audio visualization plugin for Windows Media Player."
 platform: "Windows"
 availability: "Historical release"
 version: "0.6.0"

@@ -13,8 +13,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "Events for Android",
-  "headline": "Your calendar on the home screen",
+  "headline": "Events for Android",
   "product": true,
   "intro": "See what’s next without opening your calendar. The transparent widget shows as many complete events as fit on your home screen. Tap an event in the companion agenda to open it in your calendar app.",
   "releasestatus": "Free for Android 10 and later.",

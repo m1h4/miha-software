@@ -10,8 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "Photo Resize · Android 10+",
-  "headline": "A lighter way to share.",
+  "headline": "Photo Resize · Android 10+",
   "lastmod": "2026-11-18T00:00:00+01:00",
   "platform": "Android 10+",
   "availability": "Available on Google Play",

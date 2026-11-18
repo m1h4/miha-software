@@ -10,8 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "A little help",
-  "headline": "Make Events yours."
+  "headline": "Help and support"
 }
 
 ## Add a widget

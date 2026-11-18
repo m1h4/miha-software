@@ -1,11 +1,7 @@
 {{ partial "header" . }}
 <main id="main-content" class="main shell">
-    <header class="page-header">
-        <h1>Small apps for<br><span>everyday things.</span></h1>
-        <div class="lead">{{ .Content }}</div>
-    </header>
     <section aria-labelledby="apps-heading">
-        <div class="section-heading"><h2 id="apps-heading" class="label">Current apps</h2><p class="label">Free · Private</p></div>
+        <div class="section-heading"><h1 id="apps-heading" class="label">Current apps</h1><p class="label">Free · Private</p></div>
         <div class="app-grid">
         {{ range (where (where .Site.RegularPages "Section" "apps") "Params.collection" "current").ByWeight }}
             {{ partial "app-card" . }}
@@ -14,7 +10,7 @@
     </section>
     <section aria-labelledby="archive-heading">
         <h2 id="archive-heading" class="label">From the archive</h2>
-        <p>Audio experiments and a game for good company. <a href="/apps/archive/">Older apps <span aria-hidden="true">→</span></a></p>
+        <p><a href="/apps/archive/">Older apps <span aria-hidden="true">→</span></a></p>
     </section>
 </main>
 {{ partial "footer" . }}

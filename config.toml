@@ -17,7 +17,6 @@ target = "assets"
 dateFormat = "January 2, 2006"
 email = "support@mihasoftware.com"
 copyrightYear = 2022
-tagline = "Software Development by Marko Mihovilić"
 author = "Marko Mihovilić"
 description = "Small, useful apps by Marko Mihovilić. Explore Events, Photo Resize, Beam and Radio, find support, and browse older projects."
 

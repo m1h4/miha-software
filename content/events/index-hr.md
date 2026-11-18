@@ -10,8 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "Events za Android",
-  "headline": "Vaš raspored na početnom zaslonu",
+  "headline": "Events za Android",
   "product": true,
   "intro": "Pogledajte što slijedi bez otvaranja kalendara. Prozirni widget prikazuje onoliko cijelih redaka koliko stane na početni zaslon. Dodirnite događaj u rasporedu aplikacije Events da biste ga otvorili u svojem kalendaru.",
   "releasestatus": "Besplatno za Android 10 i novije verzije.",
