@@ -78,8 +78,6 @@ select { min-height: 44px; padding: var(--s1) 12px; border: 1px solid var(--line
 
 /* Home: current apps */
 section + section { margin-top: var(--s4); }
-.section-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 var(--s3); margin-bottom: var(--s2); }
-.section-heading .label { margin: 0; }
 .app-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: var(--s3); }
 .app-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .app-card:hover { border-color: var(--accent); }
