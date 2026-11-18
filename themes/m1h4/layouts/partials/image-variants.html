@@ -1,0 +1,7 @@
+{{ $small := .Resize (printf "%dx webp q85" (int (math.Min 540 .Width))) }}
+{{ $srcset := printf "%s %dw" $small.RelPermalink $small.Width }}
+{{ if gt .Width $small.Width }}
+    {{ $large := .Resize (printf "%dx webp q85" (int (math.Min 1080 .Width))) }}
+    {{ $srcset = printf "%s, %s %dw" $srcset $large.RelPermalink $large.Width }}
+{{ end }}
+{{ return (dict "src" $small.RelPermalink "srcset" $srcset) }}

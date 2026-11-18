@@ -10,12 +10,10 @@ I like making small, useful things and understanding how they work. The collecti
 
 ## Get in touch
 
-For questions, feedback, or a hello, email [support@mihasoftware.com](mailto:support@mihasoftware.com).
+For questions, feedback, or a hello, email {{< contact-email >}}.
 
 For help with a specific app, its support page has the right contact details and useful information to include:
 
-- [Events support](/events/support.html)
-- [Photo Resize support](/apps/photo-resize/support/)
-- [Beam support](/apps/beam/support/)
+{{< support-directory >}}
 
 You can also find me on [GitHub](https://github.com/m1h4).

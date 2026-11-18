@@ -1,0 +1,2 @@
+{{ $product := hugo.Sites.Default.GetPage .CurrentSection.Path }}
+{{ return ($product.Params.supportemail | default .Site.Params.email) }}
