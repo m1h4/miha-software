@@ -15,10 +15,10 @@
   "product": true,
   "intro": "Pogledajte što slijedi bez otvaranja kalendara. Prozirni widget prikazuje onoliko cijelih redaka koliko stane na početni zaslon. Dodirnite događaj u rasporedu aplikacije Events da biste ga otvorili u svojem kalendaru.",
   "releasestatus": "Modernizirana aplikacija priprema se za objavu. Poveznicu na Google Play dodat ćemo kada bude dostupna.",
-  "screenshot": "/events/agenda-hr-light.png",
-  "screenshotdark": "/events/agenda-hr-dark.png",
-  "screenshotalt": "Primjeri događaja grupirani po danima u rasporedu aplikacije Events na Android tabletu.",
-  "screenshotcaption": "Raspored na tabletu s primjerima događaja iz dvaju kalendara."
+  "screenshot": "/events/widget-hr-light.png",
+  "screenshotdark": "/events/widget-hr-dark.png",
+  "screenshotalt": "Widget Events na početnom zaslonu telefona Pixel s nadolazećim događajima grupiranima po danima.",
+  "screenshotcaption": "Widget na početnom zaslonu s primjerima događaja iz kalendara."
 }
 
 ## Prilagodite svaki widget
