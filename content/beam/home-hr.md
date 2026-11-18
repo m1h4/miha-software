@@ -2,6 +2,7 @@
   "title": "Beam — fotografije na televizoru",
   "description": "Vaše fotografije i videozapisi na televizoru, putem vlastite Wi-Fi mreže. Besplatno, privatno, bez računa.",
   "date": "2026-11-11T00:00:00+01:00",
+  "lastmod": "2026-11-18T00:00:00+01:00",
   "url": "/apps/beam/hr/",
   "layout": "beam",
   "language": "hr",
@@ -14,7 +15,9 @@
   "headline": "Vaše fotografije na televizoru.",
   "product": true,
   "intro": "Beam prikazuje fotografije i videozapise s vašeg iPhonea ili iPada na televizoru, putem kućne Wi-Fi mreže. Dodirnite fotografiju i ona je na velikom zaslonu. Listajte, a televizor vas prati.",
-  "releasestatus": "Beam 1.0 priprema se za App Store; poveznica za preuzimanje pojavit će se ovdje kad aplikacija bude dostupna.",
+  "releasestatus": "Beam 1.0 je besplatan. Zahtijeva iOS ili iPadOS 26.5 ili noviji.",
+  "storeurl": "https://apps.apple.com/hr/app/id6821447732?l=hr",
+  "storelabel": "Preuzmite na App Storeu",
   "screenshot": "/beam/hr-viewer.jpg",
   "screenshotalt": "Beam prikazuje fotografiju slapa preko cijelog zaslona, s nazivom televizora na kojem se prikazuje i kontrolama prezentacije ispod.",
   "screenshotcaption": "Stvarna snimka zaslona aplikacije s generiranom oglednom fotografijom."

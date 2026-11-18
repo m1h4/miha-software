@@ -75,7 +75,7 @@ Photo Resize 1.0 (build 12) is available on Google Play, released on 6 November 
 
 The catalogue/English landing page is `content/apps/beam.md`. Its Croatian translation, bilingual privacy policy, and support pages are in `content/beam/`, with a non-rendered section index. Preserve `/apps/beam/`, `/apps/beam/hr/`, `/apps/beam/privacy/`, `/apps/beam/privacy/hr/`, `/apps/beam/support/` and `/apps/beam/support/hr/`; the App Store listing links to the privacy and support URLs. `themes/m1h4/layouts/beam.html` is the matching wrapper around `partials/product-page.html`; the icon and screenshots are in `static/beam/` and show only generated sample photos. Beam has one capture per language and no dark variant, so its pages and home-page card show the same image in both themes.
 
-Beam 1.0 is being prepared for the App Store; add its App Store link only after the app is released. Support uses `support@mihasoftware.com`. These pages opt out of analytics with `noAnalytics: true`, and their routes are recorded in `tests/site-contract.json`.
+Beam 1.0 is available free on the App Store for iPhone and iPad. Both landing pages link to Apple app ID `6821447732`. Support uses `support@mihasoftware.com`. These pages opt out of analytics with `noAnalytics: true`, and their routes are recorded in `tests/site-contract.json`.
 
 ## Radio release pages
 
