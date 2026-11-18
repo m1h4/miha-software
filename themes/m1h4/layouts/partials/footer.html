@@ -1,10 +1,10 @@
-<footer class="content-info shell" lang="en">
-    <a class="footer-name" href="/">miha software<span aria-hidden="true">_</span></a>
+<footer class="content-info shell">
+    <a class="footer-name" href="{{ .Site.Home.RelPermalink }}">miha software<span aria-hidden="true">_</span></a>
     <p>© {{ now.Year }} Marko Mihovilić</p>
-    <a href="/about/">Contact</a>
+    <a href="{{ (.Site.GetPage "/about").RelPermalink }}">{{ T "contact" }}</a>
     <a href="https://github.com/m1h4">GitHub <span aria-hidden="true">↗</span></a>
-    <label class="appearance-control" hidden>Appearance
-        <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+    <label class="appearance-control" hidden>{{ T "appearance" }}
+        <select id="appearance" aria-label="{{ T "appearance" }}"><option value="system">{{ T "system" }}</option><option value="light">{{ T "light" }}</option><option value="dark">{{ T "dark" }}</option></select>
     </label>
 </footer>
 <script src="/js/site.js?v={{ sha256 (readFile "themes/m1h4/static/js/site.js") | truncate 12 "" }}" defer></script>

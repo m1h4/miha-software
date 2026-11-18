@@ -1,6 +1,7 @@
-<nav id="main-navigation" class="nav" aria-label="Main navigation">
+<nav id="main-navigation" class="nav" aria-label="{{ T "navigation" }}">
     <ul>
-        <li><a href="/"{{ if .IsHome }} aria-current="page"{{ else if in (slice "apps" "events" "photo-resize" "beam" "radio") .Section }} aria-current="location"{{ end }}>Apps</a></li>
-        <li><a href="/about/"{{ if eq .RelPermalink "/about/" }} aria-current="page"{{ end }}>About &amp; Contact</a></li>
+        <li><a href="{{ .Site.Home.RelPermalink }}"{{ if .IsHome }} aria-current="page"{{ else if eq .Section "apps" }} aria-current="location"{{ end }}>{{ T "apps" }}</a></li>
+        {{ with .Site.GetPage "/about" }}<li><a href="{{ .RelPermalink }}"{{ if eq . $ }} aria-current="page"{{ end }}>{{ T "about" }}</a></li>{{ end }}
+        {{ range .Translations }}<li><a href="{{ .RelPermalink }}" lang="{{ .Language.Name }}" hreflang="{{ .Language.Name }}">{{ .Language.Label }}</a></li>{{ end }}
     </ul>
 </nav>

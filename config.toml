@@ -1,24 +1,58 @@
 baseURL = "https://www.mihasoftware.com/"
-locale = "en-US"
 title = "miha software"
 theme = "m1h4"
 disableKinds = ["taxonomy", "term", "RSS"]
 enableRobotsTXT = true
+defaultContentLanguage = "en"
+disableDefaultLanguageRedirect = true
 
-# Also expose existing static images to Hugo's image renderer without moving URLs.
-[[module.mounts]]
-source = "assets"
-target = "assets"
+[languages.en]
+label = "English"
+locale = "en-US"
+weight = 1
+
+[languages.hr]
+label = "Hrvatski"
+locale = "hr-HR"
+weight = 2
+
+# Every current product and its child pages use the same layout and privacy policy.
+# The English archive overrides these defaults in its section front matter.
+[cascade]
+type = "product"
+[cascade.params]
+noAnalytics = true
+[cascade.target]
+path = "/apps/**"
+
+# Archive screenshots are served at historical paths and measured by the theme.
 [[module.mounts]]
 source = "static"
-target = "assets"
+target = "static"
+[[module.mounts]]
+source = "static/screenshots"
+target = "assets/screenshots"
+
+# The original app image URLs are public. New apps only need their bundle.
+[[module.mounts]]
+source = "content/apps/radio/images"
+target = "static/radio"
+
+[[module.mounts]]
+source = "content/apps/beam/images"
+target = "static/beam"
+
+[[module.mounts]]
+source = "content/apps/events/images"
+target = "static/events"
+
+[[module.mounts]]
+source = "content/apps/photo-resize/images"
+target = "static/photo-resize"
 
 [params]
-dateFormat = "January 2, 2006"
 email = "support@mihasoftware.com"
-copyrightYear = 2022
 author = "Marko Mihovilić"
-description = "Small, useful apps by Marko Mihovilić. Explore Events, Photo Resize, Beam and Radio, find support, and browse older projects."
 
 [params.analytics]
 # Public beacon identifier; analytics are emitted only in production builds.

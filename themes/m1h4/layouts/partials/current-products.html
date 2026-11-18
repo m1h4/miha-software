@@ -1,0 +1,6 @@
+{{/* English owns the catalogue order. Return each landing page in the requested language. */}}
+{{ $products := slice }}
+{{ range (where (hugo.Sites.Default.GetPage "/apps").Sections "Type" "product").ByWeight }}
+    {{ with $.GetPage .Path }}{{ $products = $products | append . }}{{ end }}
+{{ end }}
+{{ return $products }}

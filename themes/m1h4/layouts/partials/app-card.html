@@ -1,12 +1,11 @@
+{{ $shared := hugo.Sites.Default.GetPage .Path }}
 <article class="app-card">
-    <a class="app-link" href="{{ .Params.producturl | default .RelPermalink }}">
+    <a class="app-link" href="{{ .RelPermalink }}">
         <div class="card-copy">
-            <div class="card-heading">{{ with .Params.icon }}<img class="app-icon" src="{{ . }}" alt="" width="48" height="48">{{ end }}<h2>{{ .Title }} <span class="cue" aria-hidden="true">→</span></h2></div>
-            <p class="label">{{ .Params.platform }}<br>{{ .Params.availability }}</p>
-            <p>{{ .Description }}</p>
+            <div class="card-heading">{{ with $shared.Resources.Get $shared.Params.icon }}<img class="app-icon" src="{{ .RelPermalink }}" alt="" width="48" height="48">{{ end }}<h2>{{ .LinkTitle }} <span class="cue" aria-hidden="true">→</span></h2></div>
+            <p class="label">{{ with .Params.platformlabel }}{{ . }}{{ else }}{{ T $shared.Params.platform }}{{ end }}<br>{{ with .Params.availabilitylabel }}{{ . }}{{ else }}{{ T $shared.Params.availability }}{{ end }}</p>
+            <p>{{ .Params.carddescription | default .Description }}</p>
         </div>
-        {{ with .Params.screenshot }}
-        <div class="card-art">{{ partial "theme-picture" (dict "light" . "dark" $.Params.screenshotdark "alt" $.Params.screenshotalt "loading" "eager" "sizes" "220px") }}</div>
-        {{ end }}
+        <div class="card-art">{{ partial "theme-picture" (dict "page" . "sizes" "220px") }}</div>
     </a>
 </article>

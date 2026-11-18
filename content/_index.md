@@ -1,5 +1,4 @@
 ---
 title: "Apps"
-description: "Small, useful apps by Marko Mihovilić. Explore Events, Photo Resize, Beam and Radio, find support, and browse older projects."
-aliases: ["/apps/"]
+description: "Small, useful apps by Marko Mihovilić. Explore apps for Android, iPhone, and iPad, find support, and browse older projects."
 ---

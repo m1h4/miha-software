@@ -1,16 +1,16 @@
 {{ partial "header" . }}
 <main id="main-content" class="main shell">
     <section aria-labelledby="apps-heading">
-        <div class="section-heading"><h1 id="apps-heading" class="label">Current apps</h1><p class="label">Free · Private</p></div>
+        <div class="section-heading"><h1 id="apps-heading" class="label">{{ T "currentApps" }}</h1><p class="label">{{ T "freePrivate" }}</p></div>
         <div class="app-grid">
-        {{ range (where (where .Site.RegularPages "Section" "apps") "Params.collection" "current").ByWeight }}
+        {{ range partial "current-products" .Site }}
             {{ partial "app-card" . }}
         {{ end }}
         </div>
     </section>
     <section aria-labelledby="archive-heading">
-        <h2 id="archive-heading" class="label">From the archive</h2>
-        <p><a href="/apps/archive/">Older apps <span aria-hidden="true">→</span></a></p>
+        <h2 id="archive-heading" class="label">{{ T "fromArchive" }}</h2>
+        <p><a href="/apps/archive/">{{ T "olderApps" }} <span aria-hidden="true">→</span></a></p>
     </section>
 </main>
 {{ partial "footer" . }}

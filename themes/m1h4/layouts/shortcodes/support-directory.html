@@ -1,0 +1,6 @@
+<ul class="support-directory">
+{{ range partial "current-products" .Site }}
+    {{ $app := . }}
+    {{ with .GetPage "support" }}<li><a href="{{ .RelPermalink }}">{{ T "appSupport" $app.LinkTitle }}</a></li>{{ end }}
+{{ end }}
+</ul>

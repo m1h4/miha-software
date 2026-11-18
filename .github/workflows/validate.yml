@@ -26,3 +26,5 @@ jobs:
         run: ./scripts/build preview
       - name: Build and validate production
         run: ./scripts/build production
+      - name: Exercise the bilingual product archetype
+        run: .venv/bin/python tests/check-archetype.py

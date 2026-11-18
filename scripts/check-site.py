@@ -39,12 +39,21 @@ def main():
         return target
 
     def public_url(route):
-        return urljoin(BASE_URL, route.removesuffix(".html"))
+        return urljoin(BASE_URL, route)
 
     for route in contract["pages"]:
         require(destination(route).is_file(), "Missing page: " + route)
-    for route in contract.get("redirects", {}):
-        require(destination(route).is_file(), "Missing redirect: " + route)
+    rules = {}
+    for line in (directory / "_redirects").read_text().splitlines():
+        if not line.strip() or line.startswith("#"):
+            continue
+        source, target, status = line.split()
+        require(source not in rules and status == "301", "Invalid redirect: " + line)
+        require(destination(target).is_file(), "Missing redirect target: " + target)
+        require(not destination(source).is_file(), "Redirect shadows a file: " + source)
+        rules[source] = target
+    for source, target in contract["redirects"].items():
+        require(rules.get(source) == target, "Incorrect permanent redirect: " + source)
     for route in contract.get("retired_pages", []):
         require(not destination(route).exists(), "Retired page remains: " + route)
     for name in contract.get("retired_assets", []) + contract.get("retired_feeds", []):
@@ -66,26 +75,19 @@ def main():
         documents[file] = document
         require(not parser.errors, "Invalid HTML in {}: {}".format(name, parser.errors))
         route = "/" + name.removesuffix("index.html") if name.endswith("index.html") else "/" + name
-        if route in contract.get("redirects", {}):
-            target = urljoin(BASE_URL, contract["redirects"][route])
-            canonical = document.find("head/link[@rel='canonical']")
-            refresh = document.find("head/meta[@http-equiv='refresh']")
-            require(canonical is not None and canonical.get("href") == target,
-                    "Incorrect redirect canonical: " + name)
-            require(refresh is not None and refresh.get("content", "").endswith(target),
-                    "Incorrect redirect destination: " + name)
-            continue
+        locale = "hr" if route.startswith("/hr/") else "en"
+        home = "/hr/" if locale == "hr" else "/"
+        require(document.get("lang", "").split("-")[0] == locale, "Incorrect HTML language: " + route)
         title = document.find("head/title")
         title_text = "".join(title.itertext()).strip() if title is not None else ""
         require(bool(title_text), "Missing title: " + name)
-        require(title_text not in titles, "Duplicate title: " + name)
-        titles.add(title_text)
+        require((locale, title_text) not in titles, "Duplicate title: " + name)
+        titles.add((locale, title_text))
         metadata = {m.get("name", m.get("property")): m.get("content", "")
                     for m in document.findall("head/meta")}
         require(bool(metadata.get("description", "").strip()), "Missing description: " + name)
         require(bool(metadata.get("og:title")) and bool(metadata.get("og:description")),
                 "Missing social metadata: " + name)
-        route = "/" + name.removesuffix("index.html") if name.endswith("index.html") else "/" + name
         canonical = document.find("head/link[@rel='canonical']")
         require(canonical is not None and canonical.get("href") == public_url(route),
                 "Incorrect canonical URL: " + name)
@@ -94,7 +96,8 @@ def main():
         require("googletagmanager.com" not in text and "google-analytics.com" not in text,
                 "Google Analytics remains in: " + name)
         beacons = document.findall(".//script[@src='https://static.cloudflareinsights.com/beacon.min.js']")
-        require(len(beacons) == (1 if args.analytics == "on" and route not in contract.get("analytics_excluded", []) else 0),
+        product = document.find(".//nav[@class='nav subnav']") is not None
+        require(len(beacons) == (1 if args.analytics == "on" and not product else 0),
                 "Incorrect analytics inclusion: " + name)
         for beacon in beacons:
             try:
@@ -103,8 +106,20 @@ def main():
             except (ValueError, AttributeError):
                 require(False, "Malformed beacon configuration: " + name)
         navigation = document.find(".//nav[@id='main-navigation']")
-        require(navigation is not None and [a.get("href") for a in navigation.findall(".//a")] == ["/", "/about/"],
-                "Main navigation must contain Apps and About & Contact: " + name)
+        nav_links = navigation.findall(".//a") if navigation is not None else []
+        require([a.get("href") for a in nav_links if not a.get("hreflang")] == [home, home + "about/"],
+                "Incorrect localized navigation: " + name)
+        alternates = {a.get("hreflang"): a.get("href") for a in document.findall("head/link[@hreflang]")}
+        switches = {a.get("hreflang"): a.get("href") for a in nav_links if a.get("hreflang")}
+        if product or route in ["/", "/hr/", "/about/", "/hr/about/"]:
+            english = route.removeprefix("/hr") if locale == "hr" else route
+            pair = {"en": english, "hr": "/hr" + english}
+            require(alternates == {lang: public_url(path) for lang, path in pair.items()},
+                    "Incorrect alternate languages: " + name)
+            require(switches == {lang: path for lang, path in pair.items() if lang != locale},
+                    "Incorrect language switch: " + name)
+        elif route.startswith("/apps/"):
+            require(not alternates and not switches, "Unexpected archive translation: " + name)
         require(document.find(".//main[@id='main-content']") is not None, "Missing main landmark: " + name)
         require(len(document.findall(".//h1")) == 1, "Expected one main heading: " + name)
         require(document.find(".//select[@id='appearance']") is not None,
@@ -149,9 +164,18 @@ def main():
 
     try:
         sitemap = ElementTree.parse(directory / "sitemap.xml")
-        locations = [element.text for element in sitemap.findall(".//{*}loc")]
-        require(set(locations) == {public_url(route) for route in contract["pages"]},
-                "Sitemap does not match content pages")
+        maps = {node.text for node in sitemap.findall("./{*}sitemap/{*}loc")}
+        require(maps == {public_url("/en/sitemap.xml"), public_url("/hr/sitemap.xml")},
+                "Incorrect language sitemap index")
+        for locale in ("en", "hr"):
+            tree = ElementTree.parse(directory / locale / "sitemap.xml")
+            locations = {node.text for node in tree.findall("./{*}url/{*}loc")}
+            expected = set()
+            for file in documents:
+                path = file.relative_to(directory).as_posix()
+                if path.endswith("index.html") and path.startswith("hr/") == (locale == "hr"):
+                    expected.add(public_url("/" + path.removesuffix("index.html")))
+            require(locations == expected, "Incorrect sitemap pages: " + locale)
     except (OSError, ElementTree.ParseError) as error:
         require(False, "Invalid sitemap: " + str(error))
     robots = directory / "robots.txt"
@@ -162,65 +186,97 @@ def main():
     not_found = documents.get(directory / "404.html")
     require(not_found is not None and not_found.find("head/meta[@content='noindex']") is not None,
             "Missing noindex 404 page")
-    for route, expected in (("/", {"/events/", "/apps/photo-resize/", "/apps/beam/", "/apps/radio/"}),
-                            ("/apps/archive/", {"/apps/analyzed/", "/apps/audio-analyzer/", "/apps/kurve/"})):
-        page = documents.get(destination(route))
-        cards = page.findall(".//a[@class='app-link']") if page is not None else []
-        require({card.get("href") for card in cards} == expected and len(cards) == len(expected),
-                "Incorrect app collection: " + route)
-    for route, count in (("/", 3), ("/events/", 1), ("/events/index-hr.html", 1),
-                         ("/apps/photo-resize/", 1), ("/apps/photo-resize/hr/", 1),
-                         ("/apps/radio/", 1), ("/apps/radio/hr/", 1)):
-        page = documents.get(destination(route))
-        pictures = page.findall(".//picture[@class='theme-picture']") if page is not None else []
-        require(len(pictures) == count, "Missing themed screenshots: " + route)
-        for picture in pictures:
-            source, image = picture.find("source"), picture.find("img")
-            require(source is not None and source.get("media") == "(prefers-color-scheme: dark)"
-                    and "-dark_" in source.get("srcset", "") and "data-theme-source" in source.attrib,
-                    "Missing system/manual dark screenshot source: " + route)
-            require(image is not None and "-light_" in image.get("srcset", "") and bool(image.get("alt", "").strip()),
-                    "Missing light screenshot/alternative: " + route)
-    # The Events home card and both product heroes showcase the launcher widget.
-    for route, selector, language in (
-        ("/", ".//a[@class='app-link'][@href='/events/']//picture", "en"),
-        ("/events/", ".//figure[@class='shot']/picture", "en"),
-        ("/events/index-hr.html", ".//figure[@class='shot']/picture", "hr"),
-    ):
-        page = documents.get(destination(route))
-        picture = page.find(selector) if page is not None else None
-        for tag, mode in (("img", "light"), ("source", "dark")):
-            element = picture.find(tag) if picture is not None else None
-            variants = element.get("srcset", "").split(",") if element is not None else []
-            prefix = f"/events/widget-{language}-{mode}_"
-            require(bool(variants) and all(v.strip().startswith(prefix) for v in variants),
-                    f"Expected the {language} {mode} Events widget screenshot on {route}")
-    for slug, filename in (("analyzed", "Analyzed.exe"), ("audio-analyzer", "AudioAnalyzer.zip"), ("kurve", "kurve.zip")):
-        app = documents.get(directory / "apps" / slug / "index.html")
-        button = app.find(".//a[@class='button download-button']") if app is not None else None
-        require(button is not None and button.get("href") == "/downloads/" + filename,
-                "Missing primary download for " + slug)
-    events_play_url = "https://play.google.com/store/apps/details?id=com.mihovilic.android.events"
-    photo_resize_play_url = "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize"
-    for route, store_url in (
-        ("/events/", events_play_url),
-        ("/events/index-hr.html", events_play_url),
-        ("/apps/photo-resize/", photo_resize_play_url),
-        ("/apps/photo-resize/hr/", photo_resize_play_url),
-        ("/apps/beam/", "https://apps.apple.com/app/id6821447732"),
-        ("/apps/beam/hr/", "https://apps.apple.com/hr/app/id6821447732?l=hr"),
-        ("/apps/radio/", "https://apps.apple.com/app/id6828167657"),
-        ("/apps/radio/hr/", "https://apps.apple.com/hr/app/id6828167657?l=hr"),
-    ):
-        app = documents.get(destination(route))
-        button = app.find(".//a[@class='button store-button']") if app is not None else None
-        require(button is not None and button.get("href") == store_url,
-                "Incorrect store link: " + route)
+    check_catalogues(directory, documents, destination, contract, require)
+    check_archive(directory, documents, destination, contract, require)
 
     if errors:
         raise SystemExit("\n".join(errors))
     print("Validated {} HTML pages, {} feeds, and {} unchanged assets; analytics {}.".format(
         len(documents), len(contract["feeds"]), len(contract["assets_sha256"]), args.analytics))
+
+
+def check_catalogues(directory, documents, destination, contract, require):
+    # Discover the catalogue independently from rendered support/privacy pages.
+    # Frozen release expectations below protect previously published integrations.
+    slugs = set(contract["published_products"])
+    for file in documents:
+        match = re.fullmatch(r"(?:hr/)?apps/([^/]+)/(?:support|privacy)/index.html",
+                             file.relative_to(directory).as_posix())
+        if match:
+            slugs.add(match[1])
+    orders = []
+    for locale, home in (("en", "/"), ("hr", "/hr/")):
+        roots = {home + "apps/" + slug + "/" for slug in slugs}
+        catalogue = documents[destination(home)].findall(".//a[@class='app-link']")
+        supports = documents[destination(home + "about/")].findall(".//ul[@class='support-directory']//a")
+        order = [card.get("href") for card in catalogue]
+        require(len(order) == len(roots) and set(order) == roots, "Incomplete catalogue: " + home)
+        require([a.get("href") for a in supports] == [url + "support/" for url in order],
+                "Support directory differs from catalogue: " + home)
+        orders.append([url.removeprefix(home) for url in order])
+        for card in catalogue:
+            root = card.get("href")
+            slug = root.strip("/").split("/")[-1]
+            release = contract["published_products"].get(slug, {})
+            for child in ("", "privacy/", "support/"):
+                url = root + child
+                page = documents.get(destination(url))
+                if page is None:
+                    require(False, "Missing product page: " + url)
+                    continue
+                nav = page.findall(".//nav[@class='nav subnav']//a")
+                require([a.get("href") for a in nav] == [root, root + "privacy/", root + "support/"],
+                        "Broken product navigation: " + url)
+                require([a.get("href") for a in nav if a.get("aria-current") == "page"] == [url],
+                        "Incorrect current product link: " + url)
+                email = page.find(".//p[@class='fineprint contact-line']/a")
+                require(email is not None and email.get("href", "").startswith("mailto:"),
+                        "Missing support contact: " + url)
+                if release and email is not None:
+                    require(email.get("href") == "mailto:" + release["email"], "Changed support contact: " + url)
+            landing = documents.get(destination(root))
+            if landing is None:
+                continue
+            shot = landing.find(".//figure[@class='shot']")
+            art = card.find(".//div[@class='card-art']")
+            for tag, mode in (("img", "light"), ("source", "dark")):
+                hero = shot.find(".//" + tag) if shot is not None else None
+                thumb = art.find(".//" + tag) if art is not None else None
+                if mode == "light" or (release and mode in release[locale]):
+                    require(hero is not None, "Missing " + mode + " screenshot: " + root)
+                require((hero is None) == (thumb is None), "Screenshot variants differ: " + root)
+                if hero is None or thumb is None:
+                    continue
+                candidates = hero.get("srcset", "")
+                require(candidates and candidates == thumb.get("srcset"), "Card/hero mismatch: " + root)
+                if mode == "light":
+                    require(bool(hero.get("alt", "").strip()), "Missing screenshot description: " + root)
+                else:
+                    require(hero.get("media") == "(prefers-color-scheme: dark)" and "data-theme-source" in hero.attrib,
+                            "Missing theme support: " + root)
+                if release:
+                    prefix = f"/apps/{slug}/images/{release[locale].get(mode)}_hu_"
+                    require(all(item.strip().startswith(prefix) for item in candidates.split(",")),
+                            "Incorrect localized capture: " + root)
+            if release:
+                button = landing.find(".//a[@class='button store-button']")
+                require(button is not None and button.get("href") == release[locale]["store"],
+                        "Incorrect store link: " + root)
+    require(orders[0] == orders[1], "Catalogue order differs by language")
+
+
+def check_archive(directory, documents, destination, contract, require):
+    archive = documents[destination("/apps/archive/")].findall(".//a[@class='app-link']")
+    downloads = {}
+    for file, page in documents.items():
+        button = page.find(".//a[@class='button download-button']")
+        if button is not None:
+            route = "/" + file.relative_to(directory).as_posix().removesuffix("index.html")
+            downloads[route] = button.get("href")
+    require(len(archive) == len(downloads) and {a.get("href") for a in archive} == set(downloads),
+            "Incorrect archive membership")
+    for route, target in contract["downloads"].items():
+        require(downloads.get(route) == target, "Changed archive download: " + route)
 
 
 if __name__ == "__main__":

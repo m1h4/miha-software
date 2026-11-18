@@ -6,30 +6,32 @@
     "/apps/archive/",
     "/apps/audio-analyzer/",
     "/apps/beam/",
-    "/apps/beam/hr/",
     "/apps/beam/privacy/",
-    "/apps/beam/privacy/hr/",
     "/apps/beam/support/",
-    "/apps/beam/support/hr/",
+    "/apps/events/",
+    "/apps/events/privacy/",
+    "/apps/events/support/",
     "/apps/kurve/",
     "/apps/photo-resize/",
-    "/apps/photo-resize/hr/",
     "/apps/photo-resize/privacy/",
-    "/apps/photo-resize/privacy/hr/",
     "/apps/photo-resize/support/",
-    "/apps/photo-resize/support/hr/",
     "/apps/radio/",
-    "/apps/radio/hr/",
     "/apps/radio/privacy/",
-    "/apps/radio/privacy/hr/",
     "/apps/radio/support/",
-    "/apps/radio/support/hr/",
-    "/events/",
-    "/events/index-hr.html",
-    "/events/privacy-hr.html",
-    "/events/privacy.html",
-    "/events/support-hr.html",
-    "/events/support.html"
+    "/hr/",
+    "/hr/about/",
+    "/hr/apps/beam/",
+    "/hr/apps/beam/privacy/",
+    "/hr/apps/beam/support/",
+    "/hr/apps/events/",
+    "/hr/apps/events/privacy/",
+    "/hr/apps/events/support/",
+    "/hr/apps/photo-resize/",
+    "/hr/apps/photo-resize/privacy/",
+    "/hr/apps/photo-resize/support/",
+    "/hr/apps/radio/",
+    "/hr/apps/radio/privacy/",
+    "/hr/apps/radio/support/"
   ],
   "feeds": [],
   "assets_sha256": {
@@ -68,32 +70,6 @@
     "screenshots/PhotoResize1.png": "f7f47c119c1a5f9125f067d02caac9c348350196dcabf8f686c66f56cc24d261",
     "screenshots/PhotoResize2.png": "2b5b1649c8d7e1d1c38465aea02b1b64af827f724d55c16a78e6341942f821ec"
   },
-  "analytics_excluded": [
-    "/apps/beam/",
-    "/apps/beam/hr/",
-    "/apps/beam/privacy/",
-    "/apps/beam/privacy/hr/",
-    "/apps/beam/support/",
-    "/apps/beam/support/hr/",
-    "/apps/photo-resize/",
-    "/apps/photo-resize/hr/",
-    "/apps/photo-resize/privacy/",
-    "/apps/photo-resize/privacy/hr/",
-    "/apps/photo-resize/support/",
-    "/apps/photo-resize/support/hr/",
-    "/apps/radio/",
-    "/apps/radio/hr/",
-    "/apps/radio/privacy/",
-    "/apps/radio/privacy/hr/",
-    "/apps/radio/support/",
-    "/apps/radio/support/hr/",
-    "/events/",
-    "/events/index-hr.html",
-    "/events/privacy-hr.html",
-    "/events/privacy.html",
-    "/events/support-hr.html",
-    "/events/support.html"
-  ],
   "retired_pages": [
     "/photos/",
     "/posts/",
@@ -104,7 +80,27 @@
   ],
   "redirects": {
     "/apps/": "/",
-    "/apps/events/": "/events/",
+    "/apps/beam/hr/": "/hr/apps/beam/",
+    "/apps/beam/privacy/hr/": "/hr/apps/beam/privacy/",
+    "/apps/beam/support/hr/": "/hr/apps/beam/support/",
+    "/apps/photo-resize/hr/": "/hr/apps/photo-resize/",
+    "/apps/photo-resize/privacy/hr/": "/hr/apps/photo-resize/privacy/",
+    "/apps/photo-resize/support/hr/": "/hr/apps/photo-resize/support/",
+    "/apps/radio/hr/": "/hr/apps/radio/",
+    "/apps/radio/privacy/hr/": "/hr/apps/radio/privacy/",
+    "/apps/radio/support/hr/": "/hr/apps/radio/support/",
+    "/events/": "/apps/events/",
+    "/events/index-hr": "/hr/apps/events/",
+    "/events/index-hr.html": "/hr/apps/events/",
+    "/events/privacy": "/apps/events/privacy/",
+    "/events/privacy-hr": "/hr/apps/events/privacy/",
+    "/events/privacy-hr.html": "/hr/apps/events/privacy/",
+    "/events/privacy.html": "/apps/events/privacy/",
+    "/events/support": "/apps/events/support/",
+    "/events/support-hr": "/hr/apps/events/support/",
+    "/events/support-hr.html": "/hr/apps/events/support/",
+    "/events/support.html": "/apps/events/support/",
+    "/hr/apps/": "/hr/",
     "/posts/analyzed-windows-64/": "/apps/analyzed/"
   },
   "retired_feeds": [
@@ -118,5 +114,62 @@
     "photos/DEUTSCHES-MUSEUM-PANO.jpg",
     "photos/ZAGREB-PANO-2.jpg",
     "photos/ZAGREB-PANO.jpg"
-  ]
+  ],
+  "published_products": {
+    "beam": {
+      "email": "support@mihasoftware.com",
+      "en": {
+        "store": "https://apps.apple.com/app/id6821447732",
+        "light": "en-viewer"
+      },
+      "hr": {
+        "store": "https://apps.apple.com/hr/app/id6821447732?l=hr",
+        "light": "hr-viewer"
+      }
+    },
+    "events": {
+      "email": "support@mihasoftware.com",
+      "en": {
+        "store": "https://play.google.com/store/apps/details?id=com.mihovilic.android.events",
+        "light": "widget-en-light",
+        "dark": "widget-en-dark"
+      },
+      "hr": {
+        "store": "https://play.google.com/store/apps/details?id=com.mihovilic.android.events",
+        "light": "widget-hr-light",
+        "dark": "widget-hr-dark"
+      }
+    },
+    "photo-resize": {
+      "email": "mihovilic@gmail.com",
+      "en": {
+        "store": "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize",
+        "light": "en-light",
+        "dark": "en-dark"
+      },
+      "hr": {
+        "store": "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize",
+        "light": "hr-light",
+        "dark": "hr-dark"
+      }
+    },
+    "radio": {
+      "email": "support@mihasoftware.com",
+      "en": {
+        "store": "https://apps.apple.com/app/id6828167657",
+        "light": "en-stations-light",
+        "dark": "en-stations-dark"
+      },
+      "hr": {
+        "store": "https://apps.apple.com/hr/app/id6828167657?l=hr",
+        "light": "hr-stations-light",
+        "dark": "hr-stations-dark"
+      }
+    }
+  },
+  "downloads": {
+    "/apps/analyzed/": "/downloads/Analyzed.exe",
+    "/apps/audio-analyzer/": "/downloads/AudioAnalyzer.zip",
+    "/apps/kurve/": "/downloads/kurve.zip"
+  }
 }
