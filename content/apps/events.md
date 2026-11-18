@@ -1,6 +1,6 @@
 ---
 title: "Events"
-description: "A compact, private agenda widget for Android. Choose your calendars and keep the days ahead close at hand."
+description: "A compact, private agenda widget for Android. Choose which calendars to show, fit the rows to your home screen, or turn on scrolling."
 platform: "Android 10+"
 availability: "Preparing for release"
 screenshot: "/events/widget-en-light.png"

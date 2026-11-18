@@ -30,6 +30,10 @@ Android can delay background work to save battery. Open Events and tap Refresh. 
 
 Choose Widgets in Events to adjust each installed widget. Light text works best on dark wallpapers; choose dark text for light wallpapers or increase background opacity. Touch and hold a widget on your home screen to resize it.
 
+## How many events fit?
+
+By default the widget shows complete rows up to its available height. To see more, make the widget taller, choose **Compact** spacing, or enable **Scroll through events** in its settings. Each installed widget has its own settings.
+
 ## Get in touch
 
 Email [support@mihasoftware.com](mailto:support@mihasoftware.com) with your Android version, device model, Events version, and a description of the problem. Screenshots are optional; remove private calendar details first.
