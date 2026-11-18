@@ -162,7 +162,7 @@ def main():
     not_found = documents.get(directory / "404.html")
     require(not_found is not None and not_found.find("head/meta[@content='noindex']") is not None,
             "Missing noindex 404 page")
-    for route, expected in (("/", {"/events/", "/apps/photo-resize/", "/apps/beam/"}),
+    for route, expected in (("/", {"/events/", "/apps/photo-resize/", "/apps/beam/", "/apps/radio/"}),
                             ("/apps/archive/", {"/apps/analyzed/", "/apps/audio-analyzer/", "/apps/kurve/"})):
         page = documents.get(destination(route))
         cards = page.findall(".//a[@class='app-link']") if page is not None else []
@@ -191,6 +191,8 @@ def main():
         ("/apps/photo-resize/hr/", play_url),
         ("/apps/beam/", "https://apps.apple.com/app/id6821447732"),
         ("/apps/beam/hr/", "https://apps.apple.com/hr/app/id6821447732?l=hr"),
+        ("/apps/radio/", "https://apps.apple.com/app/id6828167657"),
+        ("/apps/radio/hr/", "https://apps.apple.com/hr/app/id6828167657?l=hr"),
     ):
         app = documents.get(destination(route))
         button = app.find(".//a[@class='button store-button']") if app is not None else None

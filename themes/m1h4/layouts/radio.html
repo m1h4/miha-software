@@ -1,6 +1,5 @@
 {{ partial "header" . }}
-{{/* No home URL or icon: Radio has privacy and support pages only, until the app is released. */}}
-{{ $en := dict "privacy" "/apps/radio/privacy/" "support" "/apps/radio/support/" }}
-{{ $hr := dict "privacy" "/apps/radio/privacy/hr/" "support" "/apps/radio/support/hr/" }}
-{{ partial "product-page" (dict "page" . "name" "Radio" "fullname" "Radio: Croatian Stations" "email" "support@mihasoftware.com" "en" $en "hr" $hr) }}
+{{ $en := dict "home" "/apps/radio/" "privacy" "/apps/radio/privacy/" "support" "/apps/radio/support/" }}
+{{ $hr := dict "home" "/apps/radio/hr/" "privacy" "/apps/radio/privacy/hr/" "support" "/apps/radio/support/hr/" }}
+{{ partial "product-page" (dict "page" . "name" "Radio" "fullname" "Radio: Croatian Stations" "icon" "/radio/icon.png" "email" "support@mihasoftware.com" "en" $en "hr" $hr) }}
 {{ partial "footer" . }}
