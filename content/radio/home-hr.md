@@ -15,7 +15,8 @@
   "releasestatus": "Radio 1.0 je besplatan. Zahtijeva iOS ili iPadOS 26 ili noviji i internetsku vezu. Dostupan na hrvatskom i engleskom jeziku.",
   "storeurl": "https://apps.apple.com/hr/app/id6828167657?l=hr",
   "storelabel": "Preuzmite na App Storeu",
-  "screenshot": "/radio/hr-stations.png",
+  "screenshot": "/radio/hr-stations-light.png",
+  "screenshotdark": "/radio/hr-stations-dark.png",
   "screenshotalt": "Radio prikazuje omiljene i nedavno slušane hrvatske postaje, dok Radio Tvornica svira u mini-playeru.",
   "screenshotcaption": "Stvarna snimka zaslona aplikacije s oglednim podacima o slušanju."
 }

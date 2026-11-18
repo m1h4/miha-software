@@ -168,8 +168,9 @@ def main():
         cards = page.findall(".//a[@class='app-link']") if page is not None else []
         require({card.get("href") for card in cards} == expected and len(cards) == len(expected),
                 "Incorrect app collection: " + route)
-    for route, count in (("/", 2), ("/events/", 1), ("/events/index-hr.html", 1),
-                         ("/apps/photo-resize/", 1), ("/apps/photo-resize/hr/", 1)):
+    for route, count in (("/", 3), ("/events/", 1), ("/events/index-hr.html", 1),
+                         ("/apps/photo-resize/", 1), ("/apps/photo-resize/hr/", 1),
+                         ("/apps/radio/", 1), ("/apps/radio/hr/", 1)):
         page = documents.get(destination(route))
         pictures = page.findall(".//picture[@class='theme-picture']") if page is not None else []
         require(len(pictures) == count, "Missing themed screenshots: " + route)
