@@ -207,12 +207,18 @@ def check_catalogues(directory, documents, destination, contract, require):
     orders = []
     for locale, home in (("en", "/"), ("hr", "/hr/")):
         roots = {home + "apps/" + slug + "/" for slug in slugs}
-        catalogue = documents[destination(home)].findall(".//a[@class='app-link']")
+        homepage = documents[destination(home)]
+        catalogue = homepage.findall(".//a[@class='app-link']")
         supports = documents[destination(home + "about/")].findall(".//ul[@class='support-directory']//a")
         order = [card.get("href") for card in catalogue]
         require(len(order) == len(roots) and set(order) == roots, "Incomplete catalogue: " + home)
-        require([a.get("href") for a in supports] == [url + "support/" for url in order],
+        require(sorted(a.get("href") for a in supports) == sorted(url + "support/" for url in order),
                 "Support directory differs from catalogue: " + home)
+        for slug, product in contract["published_products"].items():
+            section = homepage.find(f".//section[@aria-labelledby='{product['platform']}-heading']")
+            url = home + "apps/" + slug + "/"
+            require(section is not None and section.find(f".//a[@href='{url}']") is not None,
+                    "App missing from its platform section: " + url)
         orders.append([url.removeprefix(home) for url in order])
         for card in catalogue:
             root = card.get("href")

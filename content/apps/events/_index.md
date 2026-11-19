@@ -14,8 +14,8 @@ params:
   screenshotdark: "images/widget-en-dark.png"
   screenshotalt: "Events widget on a Pixel home screen, with upcoming events grouped by day."
   screenshotcaption: "The home-screen widget with sample calendar events."
-  carddescription: "A compact, private agenda widget for Android. Choose which calendars to show, fit the rows to your home screen, or turn on scrolling."
-  platform: "android10"
+  carddescription: "A compact, private agenda widget. Choose which calendars to show, fit the rows to your home screen, or turn on scrolling."
+  platform: "android"
   icon: "images/icon.png"
   availability: "googlePlay"
 ---

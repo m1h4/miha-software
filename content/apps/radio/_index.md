@@ -4,6 +4,7 @@ description: "71 Croatian stations, live on iPhone and iPad. Keep your favorites
 date: "2026-11-18T00:00:00+01:00"
 weight: 4
 params:
+  carddescription: "Listen live to 71 Croatian radio stations. Keep your favorites close and save the songs you discover."
   headline: "Radio · iPhone and iPad"
   intro: "Listen to 71 Croatian radio stations in one simple player. From national programs to local favorites and themed music channels, tap a station and listen live."
   releasestatus: "Radio 1.0 is free. Requires iOS or iPadOS 26 or later and an internet connection. Available in English and Croatian."

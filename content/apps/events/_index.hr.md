@@ -4,6 +4,7 @@ linkTitle: "Events"
 description: "Privatan i prilagodljiv widget za Android. Besplatan, na hrvatskom i engleskom jeziku."
 date: "2026-11-06T00:00:00+01:00"
 params:
+  carddescription: "Privatan i prilagodljiv kalendarski widget. Besplatan, na hrvatskom i engleskom jeziku."
   headline: "Events za Android"
   intro: "Pogledajte što slijedi bez otvaranja kalendara. Prozirni widget prikazuje onoliko cijelih redaka koliko stane na početni zaslon. Dodirnite događaj u rasporedu aplikacije Events da biste ga otvorili u svojem kalendaru."
   releasestatus: "Besplatno za Android 10 i novije verzije."

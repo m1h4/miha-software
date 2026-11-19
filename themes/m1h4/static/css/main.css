@@ -86,7 +86,7 @@ section + section { margin-top: var(--s4); }
 .app-card .app-link:focus-visible { outline-offset: -3px; }
 .card-copy { padding: var(--s3); }
 .card-heading { display: flex; align-items: center; gap: var(--s2); margin-bottom: var(--s2); }
-.card-heading h2 { margin: 0; font-size: var(--title); }
+.card-heading h3 { margin: 0; font-size: var(--title); }
 .card-copy > p { margin: 0; }
 .card-copy > .label { margin-bottom: var(--s2); }
 .card-copy > p, .app-list p { color: var(--muted); }

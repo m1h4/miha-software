@@ -14,7 +14,7 @@ params:
   screenshotdark: "images/en-dark.png"
   screenshotalt: "Three selected photos with their original total, the metadata switch, and smaller attachment sizes."
   screenshotcaption: "Version 1.1 compares attachment sizes for three sample photos."
-  platform: "android10"
+  platform: "android"
   icon: "images/icon.png"
   availability: "googlePlay"
   supportemail: "mihovilic@gmail.com"
