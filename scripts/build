@@ -23,3 +23,5 @@ esac
 rm -rf public
 ./scripts/hugo --environment "$environment" --minify --panicOnWarning
 .venv/bin/python scripts/check-site.py public --analytics "$analytics"
+npm exec --yes --ignore-scripts --package=vnu-jar@26.11.19 -- \
+    vnu --skip-non-html --also-check-css public

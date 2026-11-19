@@ -26,7 +26,7 @@ Keep legacy page redirects in `static/_redirects`. Four compatibility mounts in 
 
 ## Validation
 
-Python 3.9 or newer is needed only for validation.
+Validation uses Python 3.9+ and Node.js 18+ with npm. On first use, npm fetches the pinned Nu Html Checker, which can download its own Java runtime.
 
 ```sh
 ./scripts/build preview
@@ -35,7 +35,9 @@ Python 3.9 or newer is needed only for validation.
 
 Each command rebuilds `public/` and validates the result. Preview excludes analytics. Production applies the page analytics policy. The first run creates `.venv/` and installs the validator dependencies. GitHub Actions and Cloudflare run the same builds.
 
-The checker validates HTML, metadata, links, language pairs, both catalogues and support directories, product screenshots, sitemaps, and analytics. `tests/site-contract.json` also protects published URLs, contacts, store links, and original asset checksums. Update those expectations when deliberately changing an existing public integration. Use a Cloudflare preview to verify HTTP redirect status and destination. Hugo's development server does not interpret `_redirects`.
+The Nu Html Checker checks every generated HTML page and stylesheet in `public/`. Errors fail the build. [Nu documentation](https://validator.github.io/validator/)
+
+The Python checker validates HTML parsing, metadata, links, language pairs, both catalogues and support directories, product screenshots, sitemaps, and analytics. `tests/site-contract.json` also protects published URLs, contacts, store links, and original asset checksums. Update those expectations when deliberately changing an existing public integration. Use a Cloudflare preview to verify HTTP redirect status and destination. Hugo's development server does not interpret `_redirects`.
 
 ## Publishing
 
