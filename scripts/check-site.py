@@ -107,17 +107,19 @@ def main():
                 require(False, "Malformed beacon configuration: " + name)
         navigation = document.find(".//nav[@id='main-navigation']")
         nav_links = navigation.findall(".//a") if navigation is not None else []
-        require([a.get("href") for a in nav_links if not a.get("hreflang")] == [home, home + "about/"],
+        require([a.get("href") for a in nav_links] == [home, home + "about/"],
                 "Incorrect localized navigation: " + name)
         alternates = {a.get("hreflang"): a.get("href") for a in document.findall("head/link[@hreflang]")}
-        switches = {a.get("hreflang"): a.get("href") for a in nav_links if a.get("hreflang")}
+        switches = document.findall(".//nav[@class='language-switch']/a")
         if product or route in ["/", "/hr/", "/about/", "/hr/about/"]:
             english = route.removeprefix("/hr") if locale == "hr" else route
             pair = {"en": english, "hr": "/hr" + english}
             require(alternates == {lang: public_url(path) for lang, path in pair.items()},
                     "Incorrect alternate languages: " + name)
-            require(switches == {lang: path for lang, path in pair.items() if lang != locale},
+            require([(a.get("hreflang"), a.get("href")) for a in switches] == list(pair.items()),
                     "Incorrect language switch: " + name)
+            require([a.get("hreflang") for a in switches if a.get("aria-current") == "true"] == [locale],
+                    "Incorrect selected language: " + name)
         elif route.startswith("/apps/"):
             require(not alternates and not switches, "Unexpected archive translation: " + name)
         require(document.find(".//main[@id='main-content']") is not None, "Missing main landmark: " + name)
