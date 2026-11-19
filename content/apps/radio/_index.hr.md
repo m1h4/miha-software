@@ -4,6 +4,7 @@ linkTitle: "Radio"
 description: "71 hrvatska radijska postaja uživo na iPhoneu i iPadu. Omiljene postaje pri ruci i pjesme koje želite zapamtiti."
 date: "2026-11-18T00:00:00+01:00"
 params:
+  carddescription: "Slušajte 71 hrvatsku radijsku postaju uživo. Omiljene postaje pri ruci i pjesme koje želite zapamtiti."
   headline: "Radio · iPhone i iPad"
   intro: "Slušajte 71 hrvatsku radijsku postaju u jednom jednostavnom playeru. Od nacionalnih programa do omiljenih lokalnih postaja i tematskih glazbenih kanala — dodirnite postaju i slušajte uživo."
   releasestatus: "Radio 1.0 je besplatan. Zahtijeva iOS ili iPadOS 26 ili noviji i internetsku vezu. Dostupan na hrvatskom i engleskom jeziku."

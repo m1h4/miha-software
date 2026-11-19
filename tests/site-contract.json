@@ -117,6 +117,7 @@
   ],
   "published_products": {
     "beam": {
+      "platform": "appleMobile",
       "email": "support@mihasoftware.com",
       "en": {
         "store": "https://apps.apple.com/app/id6821447732",
@@ -128,6 +129,7 @@
       }
     },
     "events": {
+      "platform": "android",
       "email": "support@mihasoftware.com",
       "en": {
         "store": "https://play.google.com/store/apps/details?id=com.mihovilic.android.events",
@@ -141,6 +143,7 @@
       }
     },
     "photo-resize": {
+      "platform": "android",
       "email": "mihovilic@gmail.com",
       "en": {
         "store": "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize",
@@ -154,6 +157,7 @@
       }
     },
     "radio": {
+      "platform": "appleMobile",
       "email": "support@mihasoftware.com",
       "en": {
         "store": "https://apps.apple.com/app/id6828167657",

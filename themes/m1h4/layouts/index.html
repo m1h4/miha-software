@@ -1,15 +1,21 @@
 {{ partial "header" . }}
 <main id="main-content" class="main shell">
-    <section aria-labelledby="apps-heading">
-        <header class="page-header">
-            <h1 id="apps-heading">{{ .Title }}</h1>
-        </header>
+    <header class="page-header">
+        <h1 id="apps-heading">{{ .Title }}</h1>
+    </header>
+    {{ $products := partial "current-products" hugo.Sites.Default }}
+    {{ range $platform := slice "appleMobile" "android" }}
+    {{ with where $products "Params.platform" $platform }}
+    <section aria-labelledby="{{ $platform }}-heading">
+        <h2 id="{{ $platform }}-heading" class="label">{{ T $platform }}</h2>
         <div class="app-grid">
-        {{ range partial "current-products" .Site }}
-            {{ partial "app-card" . }}
+        {{ range . }}
+            {{ with $.Site.GetPage .Path }}{{ partial "app-card" . }}{{ end }}
         {{ end }}
         </div>
     </section>
+    {{ end }}
+    {{ end }}
     <section aria-labelledby="archive-heading">
         <h2 id="archive-heading" class="label">{{ T "fromArchive" }}</h2>
         <p><a href="/apps/archive/">{{ T "olderApps" }} <span aria-hidden="true">→</span></a></p>

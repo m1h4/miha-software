@@ -2,8 +2,8 @@
 <article class="app-card">
     <a class="app-link" href="{{ .RelPermalink }}">
         <div class="card-copy">
-            <div class="card-heading">{{ with $shared.Resources.Get $shared.Params.icon }}<img class="app-icon" src="{{ .RelPermalink }}" alt="" width="48" height="48">{{ end }}<h2>{{ .LinkTitle }} <span class="cue" aria-hidden="true">→</span></h2></div>
-            <p class="label">{{ with .Params.platformlabel }}{{ . }}{{ else }}{{ T $shared.Params.platform }}{{ end }}<br>{{ with .Params.availabilitylabel }}{{ . }}{{ else }}{{ T $shared.Params.availability }}{{ end }}</p>
+            <div class="card-heading">{{ with $shared.Resources.Get $shared.Params.icon }}<img class="app-icon" src="{{ .RelPermalink }}" alt="" width="48" height="48">{{ end }}<h3>{{ .LinkTitle }} <span class="cue" aria-hidden="true">→</span></h3></div>
+            <p class="label">{{ with .Params.availabilitylabel }}{{ . }}{{ else }}{{ T $shared.Params.availability }}{{ end }}</p>
             <p>{{ .Params.carddescription | default .Description }}</p>
         </div>
         <div class="card-art">{{ partial "theme-picture" (dict "page" . "sizes" "220px") }}</div>
