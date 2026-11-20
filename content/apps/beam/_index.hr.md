@@ -10,9 +10,14 @@ params:
   releasestatus: "Beam 1.0 je besplatan. Zahtijeva iOS ili iPadOS 26.5 ili noviji."
   storelabel: "Preuzmite na App Storeu"
   storeurl: "https://apps.apple.com/hr/app/id6821447732?l=hr"
-  screenshot: "images/hr-viewer.jpg"
-  screenshotalt: "Beam prikazuje fotografiju slapa preko cijelog zaslona, s nazivom televizora na kojem se prikazuje i kontrolama prezentacije ispod."
-  screenshotcaption: "Stvarna snimka zaslona aplikacije s generiranom oglednom fotografijom."
+  screenshots:
+    - src: "images/hr-viewer.jpg"
+      alt: "Na televizoru u dnevnom boravku prikazuje se fotografija slapa, peta od ukupno 43. Razmak između fotografija postavljen je na pet sekundi."
+      caption: "Povucite prstom za sljedeću fotografiju na televizoru ili pokrenite automatsku prezentaciju."
+    - src: "images/hr-library-light.jpg"
+      dark: "images/hr-library-dark.jpg"
+      alt: "Beamova medijateka po mjesecima, s nazivom povezanog televizora i kontrolama reprodukcije."
+      caption: "Pregledajte fotografije po mjesecima i dodirnite onu koju želite prikazati na televizoru."
 ---
 
 ## Dodirnite, listajte, gledajte

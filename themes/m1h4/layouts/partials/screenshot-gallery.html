@@ -1,0 +1,22 @@
+{{ $page := .page }}
+{{ $shots := $page.Params.screenshots }}
+{{ $track := printf "screenshots-%s" $page.File.ContentBaseName }}
+{{ if not $shots }}{{ errorf "Missing screenshots on %s" $page.Path }}{{ end }}
+<div class="{{ if .card }}card-art{{ else }}shot{{ end }} gallery" role="group" aria-label="{{ T "appScreenshots" $page.LinkTitle }}">
+    {{ if gt (len $shots) 1 }}
+    <div class="gallery-pager" hidden>
+        {{ range $index, $_ := $shots }}
+        <button type="button" aria-controls="{{ $track }}" aria-label="{{ T "showScreenshot" (dict "number" (add $index 1) "total" (len $shots)) }}"{{ if eq $index 0 }} aria-current="true"{{ end }}></button>
+        {{ end }}
+    </div>
+    {{ end }}
+    <div class="gallery-track" id="{{ $track }}"{{ if gt (len $shots) 1 }} tabindex="0"{{ end }}>
+        {{ range $index, $shot := $shots }}
+        <figure class="gallery-slide">
+            {{ $picture := partial "theme-picture" (dict "page" $page "shot" $shot "sizes" $.sizes "lazy" (gt $index 0)) }}
+            {{ if $.card }}<a href="{{ $page.RelPermalink }}" tabindex="-1">{{ $picture }}</a>{{ else }}{{ $picture }}{{ end }}
+            {{ if not $.card }}{{ with $shot.caption }}<figcaption>{{ . }}</figcaption>{{ end }}{{ end }}
+        </figure>
+        {{ end }}
+    </div>
+</div>

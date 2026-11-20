@@ -1,8 +1,8 @@
 {{/* Hugo shares bundle resources between languages. The screenshot choice and alt text are localized. */}}
 {{ $page := .page }}
-{{ $light := $page.Resources.Get $page.Params.screenshot }}
+{{ $light := $page.Resources.Get .shot.src }}
 {{ $dark := false }}
-{{ with $page.Params.screenshotdark }}
+{{ with .shot.dark }}
     {{ $dark = $page.Resources.Get . }}
     {{ if not $dark }}{{ errorf "Missing dark screenshot %q on %s" . $page.Path }}{{ end }}
 {{ end }}
@@ -11,8 +11,8 @@
     {{ if $dark }}<picture class="theme-picture">
         <source data-theme-source media="(prefers-color-scheme: dark)" srcset="{{ (partial "image-variants" $dark).srcset }}" sizes="{{ $.sizes }}" type="image/webp">
     {{ end }}
-    <img src="{{ $lightSet.src }}" srcset="{{ $lightSet.srcset }}" sizes="{{ $.sizes }}" alt="{{ $page.Params.screenshotalt }}" width="{{ .Width }}" height="{{ .Height }}" loading="eager" decoding="async">
+    <img src="{{ $lightSet.src }}" srcset="{{ $lightSet.srcset }}" sizes="{{ $.sizes }}" alt="{{ $.shot.alt }}" width="{{ .Width }}" height="{{ .Height }}" loading="{{ if $.lazy }}lazy{{ else }}eager{{ end }}" decoding="async">
     {{ if $dark }}</picture>{{ end }}
 {{ else }}
-    {{ errorf "Missing screenshot %q on %s" $page.Params.screenshot $page.Path }}
+    {{ errorf "Missing screenshot %q on %s" .shot.src $page.Path }}
 {{ end }}

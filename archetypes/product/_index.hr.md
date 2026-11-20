@@ -6,6 +6,7 @@ cascade:
 params:
   intro: "Predstavite aplikaciju."
   releasestatus: "Navedite cijenu i zahtjeve."
-  screenshot: images/hr-light.png
-  screenshotalt: "Opišite prikaz aplikacije."
+  screenshots:
+    - src: images/hr-light.png
+      alt: "Opišite prikaz aplikacije."
 ---

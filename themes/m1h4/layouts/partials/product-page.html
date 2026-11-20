@@ -22,10 +22,7 @@
             {{ with $page.Params.storeurl | default $shared.Params.storeurl }}<p><a class="button store-button" href="{{ . }}">{{ $page.Params.storelabel }}</a></p>{{ end }}
             <p class="note">{{ $page.Params.releasestatus }}</p>
         </header>
-        <figure class="shot">
-            {{ partial "theme-picture" (dict "page" $page "sizes" "(max-width: 400px) calc(100vw - 32px), (max-width: 700px) 92vw, 280px") }}
-            {{ with $page.Params.screenshotcaption }}<figcaption>{{ . }}</figcaption>{{ end }}
-        </figure>
+        {{ partial "screenshot-gallery" (dict "page" $page "sizes" "(max-width: 400px) calc(100vw - 32px), (max-width: 700px) 92vw, 280px") }}
         <div class="page-body"><div class="prose">{{ $page.Content }}</div></div>
     </article>
     {{ else }}
