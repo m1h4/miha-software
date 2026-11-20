@@ -7,12 +7,10 @@
 </nav>
 {{ if .IsTranslated }}
 <nav class="language-switch" aria-label="{{ T "language" }}">
-    <span aria-hidden="true">[</span>
     {{ range $index, $page := .AllTranslations }}
         {{ if $index }}<span aria-hidden="true">|</span>{{ end }}
         <a href="{{ .RelPermalink }}" lang="{{ .Language.Name }}" hreflang="{{ .Language.Name }}"
-           aria-label="{{ .Language.Label }}" title="{{ .Language.Label }}"{{ if eq $page $ }} aria-current="true"{{ end }}>{{ upper .Language.Name }}</a>
+           aria-label="{{ .Language.Label }}" title="{{ .Language.Label }}"{{ if eq $page $ }} aria-current="true"{{ end }}><span>{{ upper .Language.Name }}</span></a>
     {{ end }}
-    <span aria-hidden="true">]</span>
 </nav>
 {{ end }}
