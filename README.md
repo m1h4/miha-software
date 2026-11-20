@@ -24,6 +24,10 @@ The homepage and About also have English and Croatian Markdown files. Interface 
 
 Keep legacy page redirects in `static/_redirects`. Four compatibility mounts in `config.toml` serve the original app images at their historical addresses from the bundle sources. New apps need no mount. The site has no RSS feeds.
 
+## Adding a post
+
+Add a Markdown file with a title and publication date under `content/posts/`. For a Croatian version, use the same filename ending in `.hr.md`. Writing lists published posts in each language newest first and shows “Coming soon” while that list is empty. The original English posts live under `content/posts/archive/` and retain their published URLs.
+
 ## Validation
 
 Validation uses Python 3.9+ and Node.js 18+ with npm. On first use, npm fetches the pinned Nu Html Checker, which can download its own Java runtime.
