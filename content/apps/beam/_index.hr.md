@@ -12,12 +12,12 @@ params:
   storeurl: "https://apps.apple.com/hr/app/id6821447732?l=hr"
   screenshots:
     - src: "images/hr-viewer.jpg"
-      alt: "Beam prikazuje fotografiju slapa preko cijelog zaslona, s nazivom televizora na kojem se prikazuje i kontrolama prezentacije ispod."
-      caption: "Stvarna snimka zaslona aplikacije s generiranom oglednom fotografijom."
+      alt: "Na televizoru u dnevnom boravku prikazuje se fotografija slapa, peta od ukupno 43. Razmak između fotografija postavljen je na pet sekundi."
+      caption: "Povucite prstom za sljedeću fotografiju na televizoru ili pokrenite automatsku prezentaciju."
     - src: "images/hr-library-light.jpg"
       dark: "images/hr-library-dark.jpg"
       alt: "Beamova medijateka po mjesecima, s nazivom povezanog televizora i kontrolama reprodukcije."
-      caption: "Pregledajte medijateku dok ste povezani s televizorom."
+      caption: "Pregledajte fotografije po mjesecima i dodirnite onu koju želite prikazati na televizoru."
 ---
 
 ## Dodirnite, listajte, gledajte

@@ -13,11 +13,11 @@ params:
     - src: "images/hr-light.png"
       dark: "images/hr-dark.png"
       alt: "Tri odabrane fotografije, ukupna izvorna veličina, prekidač za metapodatke i veličine manjih kopija."
-      caption: "Verzija 1.1 prikazuje ukupne veličine za tri ogledne fotografije."
+      caption: "Opcija Mala smanjuje ove tri fotografije s ukupno 8,0 MB na 726 kB."
     - src: "images/hr-share-light.png"
       dark: "images/hr-share-dark.png"
       alt: "Androidov izbornik za dijeljenje s pregledom triju smanjenih fotografija i dostupnim aplikacijama."
-      caption: "Pošaljite smanjene fotografije zajedno."
+      caption: "Odaberi aplikaciju putem koje želiš poslati sve smanjene fotografije zajedno."
 ---
 
 ## Podijeli do 20 fotografija u verziji 1.1

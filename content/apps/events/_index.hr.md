@@ -13,11 +13,11 @@ params:
     - src: "images/widget-hr-light.png"
       dark: "images/widget-hr-dark.png"
       alt: "Widget Events na početnom zaslonu telefona Pixel s nadolazećim događajima grupiranima po danima."
-      caption: "Widget na početnom zaslonu s primjerima događaja iz kalendara."
+      caption: "Na početnom zaslonu provjerite što vas čeka danas i sljedećih dana."
     - src: "images/agenda-phone-hr-light.png"
       dark: "images/agenda-phone-hr-dark.png"
       alt: "Raspored u aplikaciji Events s nadolazećim događajima po danima i bojama kalendara."
-      caption: "Nadolazeći događaji u aplikaciji Events."
+      caption: "Dodirnite događaj u rasporedu da biste ga otvorili u svojem kalendaru."
 ---
 
 ## Prilagodite svaki widget

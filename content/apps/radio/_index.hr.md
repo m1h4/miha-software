@@ -14,11 +14,11 @@ params:
     - src: "images/hr-stations-light.png"
       dark: "images/hr-stations-dark.png"
       alt: "Radio prikazuje omiljene i nedavno slušane hrvatske postaje, dok Radio Tvornica svira u mini-playeru."
-      caption: "Stvarna snimka zaslona aplikacije s oglednim podacima o slušanju."
+      caption: "Odaberite omiljenu postaju ili se vratite onoj koju ste nedavno slušali."
     - src: "images/hr-player-light.png"
       dark: "images/hr-player-dark.png"
-      alt: "Prikaz Sada svira s nazivom postaje, trenutačnom pjesmom i kontrolama reprodukcije."
-      caption: "Pogledajte što svira i spremite pjesmu."
+      alt: "Na postaji Radio Tvornica svira pjesma „Road to Nowhere” grupe Talking Heads."
+      caption: "Pogledajte naziv pjesme i izvođača ili provjerite što je na postaji sviralo ranije."
 ---
 
 ## Pronađite svoju postaju
