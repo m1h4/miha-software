@@ -100,8 +100,11 @@ section + section { margin-top: var(--s4); }
 .card-art img { width: auto; height: 22rem; object-fit: contain; }
 
 /* Archive: plain list */
-.app-list { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
-.app-list li { border-bottom: 1px solid var(--line); }
+.app-list, .post-list { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.app-list li, .post-list li { border-bottom: 1px solid var(--line); }
+.post-list { max-width: 65ch; }
+.post-list li { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s1) var(--s3); padding-block: var(--s2); }
+.post-list .label { margin: 0; }
 .app-list .app-link { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--s1) var(--s4); padding-block: var(--s3); }
 .app-list h2, .app-list .label { margin: 0; }
 .app-list p { max-width: 60ch; margin: 0 0 var(--s1); }

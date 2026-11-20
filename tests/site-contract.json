@@ -31,7 +31,15 @@
     "/hr/apps/photo-resize/support/",
     "/hr/apps/radio/",
     "/hr/apps/radio/privacy/",
-    "/hr/apps/radio/support/"
+    "/hr/apps/radio/support/",
+    "/hr/posts/",
+    "/posts/",
+    "/posts/archive/",
+    "/posts/analyzed-windows-64/",
+    "/posts/android-runtime/",
+    "/posts/hello-world/",
+    "/posts/initial-content/",
+    "/posts/photo-section/"
   ],
   "feeds": [],
   "assets_sha256": {
@@ -63,6 +71,7 @@
     "icons/ms-icon-150x150.png": "5ab42386e0c12e203464cd3fefae3e78600d2f6c1341a428b6c3ae51a563a096",
     "icons/ms-icon-310x310.png": "02b722d87489fa30cadb8944c7c43d0d573cc46624b6b91f703ab39bb1429324",
     "icons/ms-icon-70x70.png": "07b22b6974bca5a45127820410645c0ba9c178a1d47d671c3375582b56c9b57d",
+    "img/Androids-ART-Runtime.png": "3e6a146f38a9deb6dee664392d054ed048befaa5b4e1984345a5cf189b6bf7dd",
     "screenshots/Analyzed1.jpg": "7d9aaf24060d5cac2fa05b7ee0bf8b9e756e9283c7ab1806339dffdda49cabce",
     "screenshots/Analyzed2.jpg": "a76888d920a6d83c8d488f42fa398b3ad4648e73c5a5c3ae0d9c4a433e68a53b",
     "screenshots/AudioAnalyzer1.jpg": "aab3362313cb5e030010639442a03da16a8477594b3c707db53afd49cfcd64aa",
@@ -71,12 +80,7 @@
     "screenshots/PhotoResize2.png": "2b5b1649c8d7e1d1c38465aea02b1b64af827f724d55c16a78e6341942f821ec"
   },
   "retired_pages": [
-    "/photos/",
-    "/posts/",
-    "/posts/android-runtime/",
-    "/posts/hello-world/",
-    "/posts/initial-content/",
-    "/posts/photo-section/"
+    "/photos/"
   ],
   "redirects": {
     "/apps/": "/",
@@ -100,8 +104,7 @@
     "/events/support-hr": "/hr/apps/events/support/",
     "/events/support-hr.html": "/hr/apps/events/support/",
     "/events/support.html": "/apps/events/support/",
-    "/hr/apps/": "/hr/",
-    "/posts/analyzed-windows-64/": "/apps/analyzed/"
+    "/hr/apps/": "/hr/"
   },
   "retired_feeds": [
     "index.xml",
@@ -109,7 +112,6 @@
     "posts/index.xml"
   ],
   "retired_assets": [
-    "img/Androids-ART-Runtime.png",
     "photos/BMW-DEALERSHIP-PANO.jpg",
     "photos/DEUTSCHES-MUSEUM-PANO.jpg",
     "photos/ZAGREB-PANO-2.jpg",

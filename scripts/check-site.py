@@ -107,11 +107,15 @@ def main():
                 require(False, "Malformed beacon configuration: " + name)
         navigation = document.find(".//nav[@id='main-navigation']")
         nav_links = navigation.findall(".//a") if navigation is not None else []
-        require([a.get("href") for a in nav_links] == [home, home + "about/"],
+        require([a.get("href") for a in nav_links] == [home, home + "posts/", home + "about/"],
                 "Incorrect localized navigation: " + name)
+        if route.startswith(home + "posts/"):
+            expected_current = "page" if route == home + "posts/" else "location"
+            current = [(a.get("href"), a.get("aria-current")) for a in nav_links if a.get("aria-current")]
+            require(current == [(home + "posts/", expected_current)], "Incorrect current Writing link: " + name)
         alternates = {a.get("hreflang"): a.get("href") for a in document.findall("head/link[@hreflang]")}
         switches = document.findall(".//nav[@class='language-switch']/a")
-        if product or route in ["/", "/hr/", "/about/", "/hr/about/"]:
+        if product or route in [home, home + "about/", home + "posts/"]:
             english = route.removeprefix("/hr") if locale == "hr" else route
             pair = {"en": english, "hr": "/hr" + english}
             require(alternates == {lang: public_url(path) for lang, path in pair.items()},

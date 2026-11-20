@@ -57,10 +57,6 @@
 /hr/apps /hr/ 301
 /hr/apps/index.html /hr/ 301
 /hr/apps/index /hr/ 301
-/posts/analyzed-windows-64/ /apps/analyzed/ 301
-/posts/analyzed-windows-64 /apps/analyzed/ 301
-/posts/analyzed-windows-64/index.html /apps/analyzed/ 301
-/posts/analyzed-windows-64/index /apps/analyzed/ 301
 
 # Previously published responsive images. Originals keep their historical paths.
 /beam/en-viewer_hu_* /beam/en-viewer.jpg 301
