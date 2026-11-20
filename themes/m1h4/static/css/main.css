@@ -28,7 +28,7 @@ body { margin: 0; background: var(--bg); color: var(--text); font: 400 1rem/1.55
 [hidden] { display: none !important; }
 a { color: var(--accent); text-underline-offset: .23em; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
-a:focus-visible, select:focus-visible { outline: 3px solid var(--focus); outline-offset: 5px; }
+a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid var(--focus); outline-offset: 5px; }
 h1, h2, h3 { margin: 0 0 var(--s2); font: 500 var(--title)/1.25 var(--mono); text-wrap: balance; overflow-wrap: break-word; }
 h1 { margin-bottom: var(--s3); font-size: clamp(1.75rem, 6vw, 3rem); line-height: 1.15; letter-spacing: -.04em; }
 h3 { font-size: var(--large); }
@@ -98,10 +98,10 @@ figure { margin: 0; }
 /* Home: current apps */
 section + section { margin-top: var(--s4); }
 .app-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: var(--s3); }
-.app-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.app-card { display: flex; flex-direction: column; position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .app-card:hover { border-color: var(--accent); }
 .app-link { color: var(--text); text-decoration: none; }
-.app-card .app-link { display: flex; flex-direction: column; height: 100%; }
+.app-card .app-link { display: block; flex-grow: 1; }
 .app-card .app-link:focus-visible { outline-offset: -3px; }
 .card-copy { padding: var(--s3); }
 .card-heading { display: flex; align-items: center; gap: var(--s2); margin-bottom: var(--s2); }
@@ -109,9 +109,30 @@ section + section { margin-top: var(--s4); }
 .card-copy > p { margin: 0; }
 .card-copy > .label { margin-bottom: var(--s2); }
 .card-copy > p, .app-list p { color: var(--muted); }
-.card-art { display: flex; justify-content: center; margin-top: auto; padding: var(--s3); background: var(--soft); }
-/* Equal heights keep the cards level when captures differ in shape. */
-.card-art img { width: auto; height: 22rem; object-fit: contain; }
+.card-art { background: var(--soft); }
+
+/* App screenshots */
+.gallery { min-width: 0; }
+.gallery-track { display: flex; align-items: flex-start; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+.gallery-slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; }
+.gallery-slide > a { display: block; }
+.gallery-slide img { width: 100%; }
+.gallery-slide[inert] { height: 0; }
+.gallery-pager { display: flex; justify-content: center; }
+.gallery-pager button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.gallery-pager button::after { content: ''; width: 8px; height: 8px; border: 1px solid var(--muted); border-radius: 4px; }
+.gallery-pager button[aria-current]::after { width: 18px; border-color: var(--accent); background: var(--accent); }
+.gallery-pager button:focus-visible { outline-offset: -4px; }
+.gallery-pager:not([hidden]) + .gallery-track { scrollbar-width: none; }
+
+@media (min-width: 701px) {
+    .app-card .app-link::after { content: ''; position: absolute; inset: 0; }
+    .card-art { padding: var(--s3); }
+    .card-art .gallery-track { align-items: center; justify-content: center; gap: var(--s2); overflow: visible; scroll-snap-type: none; }
+    .card-art .gallery-slide { flex: 0 1 auto; height: auto; }
+    .card-art img { width: auto; max-height: 24rem; }
+    .card-art .gallery-pager { display: none; }
+}
 
 /* Archive: plain list */
 .app-list, .post-list { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
@@ -148,6 +169,5 @@ section + section { margin-top: var(--s4); }
     .main { padding-block: var(--s3) var(--s4); }
     .page-header.has-shot, .app-list .app-link { grid-template-columns: minmax(0, 1fr); }
     .product-landing { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; grid-template-areas: "intro" "shot" "details"; }
-    .card-art { display: block; padding: 0; }
-    .card-art img { width: 100%; height: auto; border: 0; border-radius: 0; }
+    .card-art img { border: 0; border-radius: 0; }
 }

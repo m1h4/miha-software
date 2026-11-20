@@ -6,7 +6,7 @@
             <p class="label">{{ with .Params.availabilitylabel }}{{ . }}{{ else }}{{ T $shared.Params.availability }}{{ end }}</p>
             <p>{{ .Params.carddescription | default .Description }}</p>
         </div>
-        {{/* The mobile grid fits two 300px cards starting at a viewport width of 674px. */}}
-        <div class="card-art">{{ partial "theme-picture" (dict "page" . "sizes" "(max-width: 673px) 92vw, (max-width: 700px) 45vw, 220px") }}</div>
     </a>
+    {{/* The mobile grid fits two 300px cards starting at a viewport width of 674px. */}}
+    {{ partial "screenshot-gallery" (dict "page" . "card" true "sizes" "(max-width: 673px) 92vw, (max-width: 700px) 45vw, 200px") }}
 </article>

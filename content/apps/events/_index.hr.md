@@ -9,10 +9,15 @@ params:
   intro: "Pogledajte što slijedi bez otvaranja kalendara. Prozirni widget prikazuje onoliko cijelih redaka koliko stane na početni zaslon. Dodirnite događaj u rasporedu aplikacije Events da biste ga otvorili u svojem kalendaru."
   releasestatus: "Besplatno za Android 10 i novije verzije."
   storelabel: "Preuzmi na Google Playu"
-  screenshot: "images/widget-hr-light.png"
-  screenshotdark: "images/widget-hr-dark.png"
-  screenshotalt: "Widget Events na početnom zaslonu telefona Pixel s nadolazećim događajima grupiranima po danima."
-  screenshotcaption: "Widget na početnom zaslonu s primjerima događaja iz kalendara."
+  screenshots:
+    - src: "images/widget-hr-light.png"
+      dark: "images/widget-hr-dark.png"
+      alt: "Widget Events na početnom zaslonu telefona Pixel s nadolazećim događajima grupiranima po danima."
+      caption: "Widget na početnom zaslonu s primjerima događaja iz kalendara."
+    - src: "images/agenda-phone-hr-light.png"
+      dark: "images/agenda-phone-hr-dark.png"
+      alt: "Raspored u aplikaciji Events s nadolazećim događajima po danima i bojama kalendara."
+      caption: "Nadolazeći događaji u aplikaciji Events."
 ---
 
 ## Prilagodite svaki widget

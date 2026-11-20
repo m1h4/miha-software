@@ -214,9 +214,10 @@ def check_catalogues(directory, documents, destination, contract, require):
     for locale, home in (("en", "/"), ("hr", "/hr/")):
         roots = {home + "apps/" + slug + "/" for slug in slugs}
         homepage = documents[destination(home)]
-        catalogue = homepage.findall(".//a[@class='app-link']")
+        catalogue = homepage.findall(".//article[@class='app-card']")
         supports = documents[destination(home + "about/")].findall(".//ul[@class='support-directory']//a")
-        order = [card.get("href") for card in catalogue]
+        order = [link.get("href") for link in homepage.findall(".//article[@class='app-card']/a[@class='app-link']")]
+        require(len(catalogue) == len(order), "Missing app card link: " + home)
         require(len(order) == len(roots) and set(order) == roots, "Incomplete catalogue: " + home)
         require(sorted(a.get("href") for a in supports) == sorted(url + "support/" for url in order),
                 "Support directory differs from catalogue: " + home)
@@ -226,8 +227,7 @@ def check_catalogues(directory, documents, destination, contract, require):
             require(section is not None and section.find(f".//a[@href='{url}']") is not None,
                     "App missing from its platform section: " + url)
         orders.append([url.removeprefix(home) for url in order])
-        for card in catalogue:
-            root = card.get("href")
+        for root, card in zip(order, catalogue):
             slug = root.strip("/").split("/")[-1]
             release = contract["published_products"].get(slug, {})
             for child in ("", "privacy/", "support/"):
@@ -249,32 +249,43 @@ def check_catalogues(directory, documents, destination, contract, require):
             landing = documents.get(destination(root))
             if landing is None:
                 continue
-            shot = landing.find(".//figure[@class='shot']")
-            art = card.find(".//div[@class='card-art']")
-            for tag, mode in (("img", "light"), ("source", "dark")):
-                hero = shot.find(".//" + tag) if shot is not None else None
-                thumb = art.find(".//" + tag) if art is not None else None
-                if mode == "light" or (release and mode in release[locale]):
-                    require(hero is not None, "Missing " + mode + " screenshot: " + root)
-                require((hero is None) == (thumb is None), "Screenshot variants differ: " + root)
-                if hero is None or thumb is None:
-                    continue
-                candidates = hero.get("srcset", "")
-                require(candidates and candidates == thumb.get("srcset"), "Card/hero mismatch: " + root)
-                if mode == "light":
-                    require(bool(hero.get("alt", "").strip()), "Missing screenshot description: " + root)
-                else:
-                    require(hero.get("media") == "(prefers-color-scheme: dark)" and "data-theme-source" in hero.attrib,
-                            "Missing theme support: " + root)
-                if release:
-                    prefix = f"/apps/{slug}/images/{release[locale].get(mode)}_hu_"
-                    require(all(item.strip().startswith(prefix) for item in candidates.split(",")),
-                            "Incorrect localized capture: " + root)
+            check_gallery(root, slug, card, landing, release.get(locale, {}).get("screenshots", []), require)
             if release:
                 button = landing.find(".//a[@class='button store-button']")
                 require(button is not None and button.get("href") == release[locale]["store"],
                         "Incorrect store link: " + root)
     require(orders[0] == orders[1], "Catalogue order differs by language")
+
+
+def check_gallery(root, slug, card, landing, expected, require):
+    selector = ".//figure[@class='gallery-slide']"
+    shots, thumbs = landing.findall(selector), card.findall(selector)
+    require(shots and len(shots) == len(thumbs), "Card/detail gallery mismatch: " + root)
+    if expected:
+        require(len(shots) == len(expected), "Incorrect screenshot count: " + root)
+    for page in (landing, card):
+        controls = page.findall(".//div[@class='gallery-pager']/button")
+        require(len(controls) == (len(shots) if len(shots) > 1 else 0), "Incorrect pager: " + root)
+    for index, (shot, thumb) in enumerate(zip(shots, thumbs)):
+        variants = expected[index] if index < len(expected) else {}
+        for tag, mode in (("img", "light"), ("source", "dark")):
+            image, thumbnail = shot.find(".//" + tag), thumb.find(".//" + tag)
+            if mode == "light" or mode in variants:
+                require(image is not None, "Missing " + mode + " screenshot: " + root)
+            require((image is None) == (thumbnail is None), "Screenshot variants differ: " + root)
+            if image is None or thumbnail is None:
+                continue
+            candidates = image.get("srcset", "")
+            require(candidates and candidates == thumbnail.get("srcset"), "Card/detail capture mismatch: " + root)
+            if mode == "light":
+                require(bool(image.get("alt", "").strip()), "Missing screenshot description: " + root)
+            else:
+                require(image.get("media") == "(prefers-color-scheme: dark)" and "data-theme-source" in image.attrib,
+                        "Missing theme support: " + root)
+            if variants:
+                prefix = f"/apps/{slug}/images/{variants.get(mode)}_hu_"
+                require(all(item.strip().startswith(prefix) for item in candidates.split(",")),
+                        "Incorrect localized capture: " + root)
 
 
 def check_archive(directory, documents, destination, contract, require):

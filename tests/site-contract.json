@@ -123,11 +123,27 @@
       "email": "support@mihasoftware.com",
       "en": {
         "store": "https://apps.apple.com/app/id6821447732",
-        "light": "en-viewer"
+        "screenshots": [
+          {
+            "light": "en-viewer"
+          },
+          {
+            "light": "en-library-light",
+            "dark": "en-library-dark"
+          }
+        ]
       },
       "hr": {
         "store": "https://apps.apple.com/hr/app/id6821447732?l=hr",
-        "light": "hr-viewer"
+        "screenshots": [
+          {
+            "light": "hr-viewer"
+          },
+          {
+            "light": "hr-library-light",
+            "dark": "hr-library-dark"
+          }
+        ]
       }
     },
     "events": {
@@ -135,13 +151,29 @@
       "email": "support@mihasoftware.com",
       "en": {
         "store": "https://play.google.com/store/apps/details?id=com.mihovilic.android.events",
-        "light": "widget-en-light",
-        "dark": "widget-en-dark"
+        "screenshots": [
+          {
+            "light": "widget-en-light",
+            "dark": "widget-en-dark"
+          },
+          {
+            "light": "agenda-phone-en-light",
+            "dark": "agenda-phone-en-dark"
+          }
+        ]
       },
       "hr": {
         "store": "https://play.google.com/store/apps/details?id=com.mihovilic.android.events",
-        "light": "widget-hr-light",
-        "dark": "widget-hr-dark"
+        "screenshots": [
+          {
+            "light": "widget-hr-light",
+            "dark": "widget-hr-dark"
+          },
+          {
+            "light": "agenda-phone-hr-light",
+            "dark": "agenda-phone-hr-dark"
+          }
+        ]
       }
     },
     "photo-resize": {
@@ -149,13 +181,29 @@
       "email": "mihovilic@gmail.com",
       "en": {
         "store": "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize",
-        "light": "en-light",
-        "dark": "en-dark"
+        "screenshots": [
+          {
+            "light": "en-light",
+            "dark": "en-dark"
+          },
+          {
+            "light": "en-share-light",
+            "dark": "en-share-dark"
+          }
+        ]
       },
       "hr": {
         "store": "https://play.google.com/store/apps/details?id=com.mihovilic.android.resize",
-        "light": "hr-light",
-        "dark": "hr-dark"
+        "screenshots": [
+          {
+            "light": "hr-light",
+            "dark": "hr-dark"
+          },
+          {
+            "light": "hr-share-light",
+            "dark": "hr-share-dark"
+          }
+        ]
       }
     },
     "radio": {
@@ -163,13 +211,29 @@
       "email": "support@mihasoftware.com",
       "en": {
         "store": "https://apps.apple.com/app/id6828167657",
-        "light": "en-stations-light",
-        "dark": "en-stations-dark"
+        "screenshots": [
+          {
+            "light": "en-stations-light",
+            "dark": "en-stations-dark"
+          },
+          {
+            "light": "en-player-light",
+            "dark": "en-player-dark"
+          }
+        ]
       },
       "hr": {
         "store": "https://apps.apple.com/hr/app/id6828167657?l=hr",
-        "light": "hr-stations-light",
-        "dark": "hr-stations-dark"
+        "screenshots": [
+          {
+            "light": "hr-stations-light",
+            "dark": "hr-stations-dark"
+          },
+          {
+            "light": "hr-player-light",
+            "dark": "hr-player-dark"
+          }
+        ]
       }
     }
   },

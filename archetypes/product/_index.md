@@ -10,6 +10,7 @@ params:
   icon: images/icon.png
   intro: "Introduce the app."
   releasestatus: "Add price and requirements."
-  screenshot: images/en-light.png
-  screenshotalt: "Describe the app screen."
+  screenshots:
+    - src: images/en-light.png
+      alt: "Describe the app screen."
 ---

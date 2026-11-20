@@ -9,10 +9,15 @@ params:
   intro: "Pripremi manje privitke za e-poštu ili poruke. Izvorne fotografije ostaju u galeriji."
   releasestatus: "Photo Resize je dostupan na Google Playu. U nastavku su novosti u verziji 1.1."
   storelabel: "Preuzmi na Google Playu"
-  screenshot: "images/hr-light.png"
-  screenshotdark: "images/hr-dark.png"
-  screenshotalt: "Tri odabrane fotografije, ukupna izvorna veličina, prekidač za metapodatke i veličine manjih kopija."
-  screenshotcaption: "Verzija 1.1 prikazuje ukupne veličine za tri ogledne fotografije."
+  screenshots:
+    - src: "images/hr-light.png"
+      dark: "images/hr-dark.png"
+      alt: "Tri odabrane fotografije, ukupna izvorna veličina, prekidač za metapodatke i veličine manjih kopija."
+      caption: "Verzija 1.1 prikazuje ukupne veličine za tri ogledne fotografije."
+    - src: "images/hr-share-light.png"
+      dark: "images/hr-share-dark.png"
+      alt: "Androidov izbornik za dijeljenje s pregledom triju smanjenih fotografija i dostupnim aplikacijama."
+      caption: "Pošaljite smanjene fotografije zajedno."
 ---
 
 ## Podijeli do 20 fotografija u verziji 1.1
