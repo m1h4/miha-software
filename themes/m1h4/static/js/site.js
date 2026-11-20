@@ -55,6 +55,12 @@ for (const gallery of document.querySelectorAll('.gallery')) {
         next.click();
     });
     track.addEventListener('scroll', syncPage, { passive: true });
+    track.addEventListener('scrollend', () => {
+        if (current < 0) return;
+        // Some mobile browsers can finish a swipe between snap points.
+        const left = current * track.clientWidth;
+        if (Math.abs(track.scrollLeft - left) > 1) track.scrollTo({ left });
+    });
     new ResizeObserver(syncPage).observe(track);
     syncPage();
     track.removeAttribute('tabindex');
